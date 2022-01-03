@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout flex</title>
+    <style>
+        div.container{
+            width: 1200px;
+            height: 900px;
+            background-color: ivory;
+            margin: 0 auto;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: space-between; */
+            /* 삐져나감 방지!! */
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        header, footer{
+            height: 20%;
+            line-height:180px; 
+        }
+        header{
+            background-color:olivedrab;
+        }
+        div.section{
+            height: 60%;
+            display: flex;
+            line-height:540px; 
+            /* flex-direction: row; */
+        }
+
+        nav,aside{
+            width: 20%;
+            background-color:yellowgreen;
+        }
+        section{
+            width:60%;
+            background-color:lemonchiffon;
+        }
+        footer{
+            background-color:olive;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>header</header>
+        <div class="section">
+            <nav>nav</nav>
+            <section>section</section>
+            <aside>aside</aside>
+        </div>
+        <footer>footer</footer>
+    
+    </div>
+</body>
+</html>

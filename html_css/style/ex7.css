@@ -1,0 +1,49 @@
+#main div {
+    background-color: yellow;
+}
+p {
+    background-color: darkred;
+    color: white;
+}
+
+.class,
+#id {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.attribute {
+    color: green;
+    font-weight: bold;
+}
+
+h2 {
+    color: blue;
+    font-style: italic;
+}
+
+/* answer */
+
+/* #main div {
+    background: yellow;
+}
+#main > p {
+    background: maroon;
+    color: white;
+}
+ul + p {
+    background: silver;
+}
+li.id + li {
+    color: green;
+    font-weight: bold;
+}
+ul ~ h2 {
+    color: blue;
+    font-style: italic;
+}
+.class,
+.id {
+    font-size: 20px;
+    font-weight: bold;
+} */
