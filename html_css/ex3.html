@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend><h1>개인정보입력</h1></legend>
+            <form action="" method="get">
+            <p>이름 : <input type="text" name="name">
+                <button type="button" onclick="alert('사용가능한 아이디입니다')">ID중복검사</button>
+            </p>
+
+            <p>생년월일: <input type="date" name="birth"></p>
+            <p>성별 : 
+                <input type="radio" name="sex" value="male">남자
+                <input type="radio" name="sex" value="female">여자
+            </p>
+            <p>E-mail: <input type="email" name="email"></p>
+            <p>메일수신 : 
+                <input type="radio" name="receive" value="agree">수신동의
+                <input type="radio" name="receive" value="deny">수신거부
+            </p>
+            <p>핸드폰 : 
+                <select name="first-num" id="">
+                    <option select>010</option>
+                    <option>011</option>
+                    <option>051</option>
+                    <option>070</option>
+                </select>
+                -
+                <input type="number" name="mid-num">
+                -
+                <input type="number" name="end-num">
+            </p>
+
+            <p>직업:
+                <select name="job" id="">
+                    <option select>학생</option>
+                    <option>교수</option>
+                    <option>강사</option>
+                    <option>공무원</option>
+                </select>
+            </p>
+            <p>취미:
+                <input type="checkbox" name="subject" value="쇼핑"> 쇼핑
+                <input type="checkbox" name="subject" value="인터넷"> 인터넷
+                <input type="checkbox" name="subject" value="음악감상"> 음악감상
+                <input type="checkbox" name="subject" value="독서"> 독서
+                <input type="checkbox" name="subject" value="스포츠"> 스포츠
+            </p>
+            <p>자기소개 : 
+                <textarea name="introduce" id="" cols="80" rows="10"></textarea>
+            </p>
+            <input type="submit" value="등록">
+            <input type="reset" value="초기화">
+        </form>
+    </fieldset>
+</body>
+</html>
