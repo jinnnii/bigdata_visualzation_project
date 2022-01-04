@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index</title>
+    <style>
+        #FirstBOX{
+            background-color: red;
+            position:absolute;
+            opacity: 100%;
+            width: 400px;
+            height: 300px;
+        }
+        div div div{
+            position: absolute;
+            background-color: skyblue;
+            opacity: 60%;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+        }
+        #box1{
+            top:40px;
+            left: 40px; 
+        }
+        #box2{
+            top:60px;
+            left: 60px; 
+        }
+        #box3{
+            top:80px;
+            left: 80px; 
+        }
+        #box4{
+            top:100px;
+            left: 100px; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <div id="FirstBOX">배경 게시판</div>
+            <div id="box1">Box #01</div>
+            <div id="box2">Box #02</div>
+            <div id="box3">Box #03</div>
+            <div id="box4">Box #04</div>
+        </div>
+    </div>
+</body>
+</html>
