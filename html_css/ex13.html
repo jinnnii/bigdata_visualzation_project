@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using bootstrap</title>
+    <!-- bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!--https://www.w3schools.com/bootstrap5/-->
+    <!-- Containers : fixed width container == padding, center-->
+    <!-- Containers-fluid : full width container, almost images-->
+    <div class="container">
+        <h1>My First Bootstrap Page</h1>
+        <p>This is some text.</p>
+    </div>
+
+    <!-- pt-5 : add top padding, p:padding, t:top to 5px-->
+    <!-- my-5 : -->
+    <!-- bg : background-color -->
+    <!-- text-(color) -->
+    <div class="container pt-5">My First Bootstrap Page</div>
+    <div class="container p-5 my-5 border">My First Bootstrap Page</div>
+    <div class="container p-5 my-5 bg-dark text-white">My First Bootstrap Page</div>
+    <div class="container p-5 my-5 bg-primary text-white">My First Bootstrap Page</div>
+
+    <!-- row -> col : create equal width column -->
+    <div class="row">
+        <div class="col">.col</div>
+        <div class="col">.col</div>
+        <div class="col">.col</div>
+    </div>
+
+    <!-- col-sm-3 : in mobile, the columns stack each other -->
+    <div class="row">
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3">.col-sm-3</div>
+    </div>
+
+    <!-- col-sm-"number" mean : 4:8 scaling -->
+    <div class="row">
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-8">.col-sm-8</div>
+    </div>
+
+    <!-- color : text, background-->
+    <p class="text-muted">This text is muted.</p>
+    <p class="text-primary">This text is important.</p>
+    <p class="text-success">This text indicates success.</p>
+    <p class="text-info">This text represents some information.</p>
+    <p class="text-warning">This text represents a warning.</p>
+    <p class="text-danger">This text represents danger.</p>
+    <p class="text-secondary">Secondary text.</p>
+    <p class="text-dark">Dark grey text.</p>
+    <p class="text-body">Body text.</p>
+    <p class="text-white">White text</p>
+    <p class="text-light">Light grey text</p>
+
+    <!-- table : nomal, 
+        table-striped, 
+        table-bordered, 
+        table-hover, :when mouse hover, background-color change
+        table-dark, 
+        table-borderless, 
+        table-(color),
+        table-sm, : small table
+        table-responsive : add scrollbar (when too big horizontally) -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- image shapes -->
+    <!-- round : border-radius shape,
+        round-circle : circle shape 
+        img-thumbnail : frame shape -->
+    <img src="img/img.jpg" width="200"class="rounded" alt="Cinque Terre">
+    <img src="img/img.jpg" width="200"class="rounded-circle" alt="Cinque Terre">
+    <img src="img/img.jpg" width="200"class="img-thumbnail" alt="Cinque Terre">
+
+    <!-- aligning images : flaot start & end -->
+    <div>
+        <img src="img/img.jpg" width="200"class="float-start">
+        <img src="img/img.jpg" width="200"class="float-end">
+    </div>
+
+    <!-- centered image : .mx-auto (margine:auto), d-block(display:block)-->
+    <img src="img/img.jpg" width="200" class="mx-auto d-block">
+
+    <!-- img-fluid : max-width: 100%, height: auto, to images -->
+    <div class="container mt-3 bg-secondary text-light">
+        <h2>Image</h2>
+        <p>The .img-fluid class makes the image scale nicely to the parent element (resize the browser window to see the
+            effect):</p>
+        <img class="img-fluid" src="img/img.jpg" alt="New York" width="1100" height="500">
+    </div>
+
+    <!-- Jumbotron : big padded box for "attention, special&important information"-->
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>Jumbotron Example</h1>
+        <p>Lorem ipsum...</p>
+    </div>
+    <!-- Alert : alert-(color) -->
+    <div class="alert alert-success">
+        <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+
+    <!-- button
+        btn-(color),
+        btn-outline-(color),
+        btn-lg, -sm,
+        btn-block : fulll width button, use the ".d-grid", ".gap-(number)"(when many button, padding between) on parent,
+        disabled,
+        spinner-border-(size), spinner-grow-(size)-->
+
+        <div class="d-grid gap-3">
+            <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+            <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+            <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+        </div>
+
+    <!-- ## spinner: spinner-border, spinner-grow -->
+    <div class="spinner-border spinner-border-sm"></div>
+    <div class="spinner-grow spinner-grow-sm"></div>
+
+
+    <!-- group button : btn-group-(size), btn-group-vertical
+        group buitton is inline set!!-->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <button type="button" class="btn btn-primary">Sony</button>
+    </div>
+
+    <!-- dropdown menus : with JS
+        dropdown-toggle, dropdown-menu, dropdown-item,
+        dropdown-divider, dropdown-header,
+        icon position : dropdown dropend, dropstart,
+        menu position : dropdown-menu-end,
+        dropup <==> dropdown,
+        dropdown-item-text : to use plain text, to use links-->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Sony</button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Tablet</a>
+            <a class="dropdown-item" href="#">Smartphone</a>
+        </div>
+    </div>
+
+    <!-- badges : with <span>-->
+    <h4>Example heading 
+        <span class="badge bg-secondary">New</span>
+        <span class="badge rounded-pill bg-primary">Primary</span>
+        <span class="badge bg-danger">4</span>
+    </h4>
+
+    <!-- progress bar : nomal, progress-bar-striped, progress-bar-animated-->
+    <div class="progress">
+        <div class="progress-bar" style="width:70%">70%</div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">40%</div>
+    </div>
+
+    <!-- progress bar multiple!! : all in progress class-->
+    <div class="progress">
+        <div class="progress-bar bg-success" style="width:40%">
+            Free Space
+        </div>
+        <div class="progress-bar bg-warning" style="width:10%">
+            Warning
+        </div>
+        <div class="progress-bar bg-danger" style="width:20%">
+            Danger
+        </div>
+    </div>
+
+    <!-- pagination : web site pages sort 
+        to current page, add ".active" class 
+        first page and no previous active, add ".disabled" class in previous button 
+        center page, add ".justify-content-center" class -->
+    <ul class="pagination pagination-sm justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+    <!-- List group : list-group > list-group-item 
+        nomal,
+        list-group-item-action : hover backgorund change
+        list-group-flush : remove border and round corners
+        list-group-numbered : list item get with number in front of them
+        list-group-horizontal-->
+    <ul class="list-group">
+        <li class="list-group-item">First item</li>
+        <li class="list-group-item active">Second item</li>
+        <li class="list-group-item">Third item</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Inbox
+            <span class="badge bg-primary rounded-pill">12</span>
+        </li>
+    </ul>
+
+
+    <!-- Card : card, card-header, card-body, card-footer
+        card-link, card-img-top, card-title, card-text
+        card-img-overlay-->
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="img/img.jpg" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title">John Doe</h4>
+            <p class="card-text">Some example text.</p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+    </div>
+
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="img/img.jpg" alt="Card image">
+        <div class="card-img-overlay">
+            <h4 class="card-title text-light">John Doe</h4>
+            <p class="card-text text-light">Some example text.</p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+        </div>
+    </div>
+
+
+    <!-- collapsible -->
+    <button data-bs-toggle="collapse" data-bs-target="#demo">Collapsible</button>
+    
+    <div id="demo" class="collapse">
+        Lorem ipsum dolor text....
+    </div>
+
+    <!-- Nav Menus : nav, nav-item, nav-link,
+        nav flex-column : vertical nav
+        !!! nav-tabs
+        !!! nav-pills
+        nav-justified : equal width-->
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+
+    <!-- nav tabs(menu) 
+        ! data-togle="tab" of nav-item/nav-link
+        ! tab-pane in tab-content div
+        ! tab-pane class with "id" for tab
+        ! tab-pane is switch |fade| to |active| -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes(container) -->
+    <div class="tab-content">
+        <div class="tab-pane container active" id="home">...</div>
+        <div class="tab-pane container fade" id="menu1">...</div>
+        <div class="tab-pane container fade" id="menu2">...</div>
+    </div>
+</body>
+
+</html>

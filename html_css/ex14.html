@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>using bootstrap</title>
+    <!-- bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!--https://www.w3schools.com/bootstrap5/-->
+    <!-- carousel
+    carousel slide slide type carousel div
+    >carousel-caption
+    carousel-indicators : bottom slide button, !! target=parent id
+    carousel-inner>carousel-item : content images
+        >carousel-caption : image inner text
+    carousel-control-prev, carousel-control-next > icon : next or prev button !! target=parent id
+    -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/img.jpg" alt="img" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img.jpg" alt="img" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img.jpg" alt="img" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img.jpg" alt="img" class="d-block w-100">
+                <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+<div class="container mt-3 text-center">
+    <h3>Model Example</h3>
+    <!-- Modal : dialog box/popup window on current page
+    modal button => data-bs-toggle = "modal" , target="#id"
+    modal => class = modal/modal fade, id = target
+    >modal-dialog : modal-dialog-(size),-fullscreen,-centered,-scrollable
+        >modal-content
+            >modal-header
+                >modal-title,
+                >btn-close : data-bs-dismiss = "modal"
+            >modal-body
+            >modal-footer
+            >btn-(type) : data-bs-dismiss="modal"
+    -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        Open Modal
+    </button>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading Title</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Modal body...!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip : pop-up the box apear when mouse pointer over -->
+    <!-- add script,
+    data-bs-toggle = "tooltip",
+    box conent text => title -->
+    <div class="d-flex">
+        <div class="container mt-3 ">
+            <h3>Tooltips Example</h3>
+            <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="Hooray~~~~~~~">Hover over me!</button>
+        </div>
+        <script>
+                // Initialize tooltips
+                let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                    let tooltipList = tooltipTriggerList.map((tooltipTriggerEl)=> {
+                        return new bootstrap.Tooltip(tooltipTriggerEl)
+                    })
+        </script>
+
+        <!-- Popovers : pop-up the box apear when mouse ""click" -->
+        <!-- add script,
+        data-bs-toggle = "popover",
+        box title text => title,
+        box content text => data-bs-content
+        No click, when hover: data-bs-trigger="hover"-->
+        <div class="container mt-3">
+            <h3>Popovers Example</h3>
+            <button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Popover Header" data-bs-content="Some Content inside the popover">Toogle popover</button>
+        </div>
+    </div>
+    <script>
+        let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        let popoverList = popoverTriggerList.map((popoverTriggerEl)=> {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+
+
+    <!-- Toast : pop-up box  -->
+    <div class="container mt-3">
+        <h3>Toast Example</h3>
+
+        <div class="toast show mx-auto">
+            <div class="toast-header">
+                <strong class="me-auto">Toast Header</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <p>Some text inside the toast</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scrollspy :  button click, section find and auto scroll
+    
+    data-bs-spy="scroll"
+    data-bs-target=".navbar" : when click this class, move the scroll
+    data-bs-offset = "50"
+
+    in the nav-item, href ="#id" -> id="id" section -->
+    <div data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#section1">Section 1</a> </li>
+                <li class="nav-item"><a class="nav-link" href="#section2">Section 2</a> </li>
+            </ul>
+            </div>
+        </nav>
+
+        <!-- section-->
+        <div id="section1" class="container-fluid bg-success text-white my-3" style="padding: 100px 20px;">
+            <h1>Section 1</h1>
+        </div>
+        <div id="section2" class="container-fluid bg-warning" style="padding: 100px 20px;">
+            <h1>Section 2</h1>
+        </div>
+    </div>
+
+    <!-- Offcanvas : nav bar apear
+    offcanvas offcanvas-start /-end/-top/-bottom (position) , id=""
+        >offcanvas-header
+            >offcanvas-title
+            >btn-close, dismiss="offcanvas"
+        >offcanvas-body
+    button, toggla="offcanvas" target="#id"-->
+    <div class="offcanvas offcanvas-start" id="demo2">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Heading</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>some text</p>
+            <p>some text</p>
+            <button type="button" class="btn btn-secondary">A Button</button>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3">
+        <h3>Offcanvas Sidebar</h3>
+        <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#demo2">
+            Open Offcanvas Sidebar
+        </button>
+    </div>
+</body>
+</html>
