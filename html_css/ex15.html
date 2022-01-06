@@ -37,7 +37,49 @@
         for(let i=1; i<=100; i++){
             sum += i;
         }
-        document.write(`sum = ${sum}`)
+        document.write(`sum = ${sum}<br>
+        ----------------------`);
+
+        //ex7
+        document.write(`<table>`)
+        for (let i = 1; i < 10; i++) {
+            document.write('<tr>');
+            for(let j=2; j<10; j++){
+                document.write(`<td width="100">${j}x${i}=${i*j}</td>`)
+            }
+            document.write('</tr>');
+        }
+        document.write(`</table>`)
+
+
+        //ex8
+
+        for(let j=1; j<=5; j++){
+            for(let k=0;k<j;k++){
+                document.write('✨');
+            }
+            document.write('<br>')
+        }
+
+        // ex9
+        for(let i=1; i<=5; i++){
+            for(let j=5; j>i; j--){
+                document.write('⚪');
+            }
+            for(let j=0; j<i; j++){
+                document.write('🏀')
+            }
+            document.write('<br>')
+        }
+
+        //ex10
+    function getRandomOneToFive(){
+        let min = Math.ceil(1);
+        let max= Math.floor(5);
+        return Math.floor(Math.random()*(max-min+1))+min;
+    }
+
+    document.write(getRandomOneToFive());
     </script>
 </head>
 <body>  
