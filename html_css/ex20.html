@@ -8,38 +8,38 @@
 </head>
 <body>
     <form action="a.jsp" method="post" name="frm">
-        학년: <select name="grade" id="">
-            <option value="">학년을 선택하세요</option>
-            <option value="1">1학년</option>
-            <option value="2">2학년</option>
-            <option value="3">3학년</option>
-            <option value="4">4학년</option>
+        ?�년: <select name="grade" id="">
+            <option value="">?�년?? ?�택?�세??</option>
+            <option value="1">1?�년</option>
+            <option value="2">2?�년</option>
+            <option value="3">3?�년</option>
+            <option value="4">4?�년</option>
         </select>
         <br>
-        <input type="button" value="정보확인1" onclick="info1()">
-        <input type="button" value="정보확인2" onclick="info2()">
-        <input type="button" value="전송" onclick="checkForm()">
+        <input type="button" value="?�보?�인1" onclick="info1()">
+        <input type="button" value="?�보?�인2" onclick="info2()">
+        <input type="button" value="?�송" onclick="checkForm()">
     </form>
     <script>
         function info1(){
-            alert('옵션개수: '+ frm.grade.length);
+            alert('?�션개수: '+ frm.grade.length);
             alert('name:'+ frm.grade.name);
             alert('type:'+ frm.grade.type); //multiple/select-one
-            alert('선택된 옵션 인덱스 : ' +frm.grade.selectedIndex);
+            alert('?�택?? ?�션 ?�덱?? : ' +frm.grade.selectedIndex);
         }
         function info2(){
             alert(`
-        첫번째 속성: ${frm.grade.options[0].text}
-        두번째 속성: ${frm.grade.options[1].text}
-        세번째 속성: ${frm.grade.options[2].text}
-        네번째 속성: ${frm.grade.options[3].text}
-        다섯번째 속성: ${frm.grade.options[4].text}`)
-        alert(`두번째 옵션 value: ${frm.grade.options[1].value}`);
-        alert(`두번째 옵션 선택여부: ${frm.grade.options[1].selected}`);
+        첫번�? ?�성: ${frm.grade.options[0].text}
+        ?�번�? ?�성: ${frm.grade.options[1].text}
+        ?�번�? ?�성: ${frm.grade.options[2].text}
+        ?�번�? ?�성: ${frm.grade.options[3].text}
+        ?�섯번째 ?�성: ${frm.grade.options[4].text}`)
+        alert(`?�번�? ?�션 value: ${frm.grade.options[1].value}`);
+        alert(`?�번�? ?�션 ?�택?��?: ${frm.grade.options[1].selected}`);
         }
         function checkForm(){
             if(frm.grade.options[0].selected){
-                alert('학년을 선택해주세요');
+                alert('?�년?? ?�택?�주?�요');
                 frm.grade.focus();
                 return
             }
