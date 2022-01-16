@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer >
+        let kdata=['서울','부산','구포','대구','대전'];
+        let numArr = [1,2,3,4,5,6,7,8,9,10];
+        let deldata = kdata.splice(1,2);
+        document.write(deldata+'<br>');
+
+        kdata.forEach((element,index) => {
+            document.write(`${element},${index}`);
+            document.write(' ');
+        });
+
+        let =numArrSum=0;
+        numArr.forEach(element => {
+            numArrSum+=element;
+        });
+        document.write(numArrSum);
+
+        document.write('----------------------------------------------------');
+        let mapArr =numArr.map(val=>{
+            return val*val;
+        });
+
+        document.write(mapArr);
+        document.write('<br>');
+
+        //이벤트
+        function onButton2DClick(){
+            alert('더블클릭됨');
+        }
+        function onFocused(){
+            alert('포커스 발생함');
+            document.querySelector('.next-focus').focus();
+        }
+        function onMouseOver(){
+            alert('마우스 오버됨');
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼1" onclick="alert('메세지');">
+    <input type="button" value="버튼2" ondblclick="onButton2DClick()">
+    <input type="button" value="버튼4" onmouseover="onMouseOver()">
+    <input type="text" value="텍스트1" onfocus="onFocused()">
+    <input type="text" value="텍스트2" class="next-focus">
+
+</body>
+</html>
