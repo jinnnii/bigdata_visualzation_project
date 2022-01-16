@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<body>
+    <form action="a.jsp"method="post"name="frm">
+        아이디 : <input type="text"name="id"><br>
+        비밀번호 : <input type="password" name="password"><br>
+        주민번호 : <input type="text" name="jumin1" onkeyup="jumin1()"> -
+            <input type="text" name="jumin2" onkeyup="jumin2()"><br>
+        자기소개: <textarea name="txt" id="" cols="10" rows="3"></textarea>
+        <br>
+        <input type="button" value="버튼" onclick="func1()">
+        <input type="button" value="전송" onclick="func2()">
+    </form>
+    <script>
+        function func1(){
+            // alert(document.frm.id.type);
+            // alert(document.frm.id.name);
+            // alert(document.frm.id.value);
+            document.frm.id.focus();
+            frm.id.blur(); //focus 해제하기
+            frm.id.select(); //value값 선택하기(드래그 선택효과)
+        }
+        function func2(){
+            if( frm.id.value.length==0
+                //frm.id.value===""
+                ){
+                alert('아이디를 입력하세요');
+                frm.id.focus();
+                return;
+            }
+
+            //글자 수 제한
+            if(frm.id.value.length<4 &&
+                frm.id.value.length>10){
+                    alert('id 글자수가 4~10자 사이만 가능합니다');
+                    frm.id.focus();
+                    return;
+                }
+
+            if(frm.password.value.length==0){
+                alert('비밀번호를 입력하세요');
+                frm.password.focus();
+                return;
+            }
+            frm.submit(); //form 전송하기
+        }
+
+        function jumin1(){
+            if(frm.jumin1.value.length==6){
+                frm.jumin2.focus();
+            }
+        }
+        function jumin2(){
+            if(frm.jumin2.value.length==7){
+                frm.txt.focus();
+            }
+        }
+
+        document.frm.jumin1.addEventListener('keyup', jumin1);
+        document.frm.jumin2.addEventListener('keyup', jumin2);
+    </script>
+</body>
+</html>

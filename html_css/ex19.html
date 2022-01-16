@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radio checkbox</title>
+</head>
+<body>
+    <form action="a.jsp" method="post" name="frm">
+        성별:
+        <input type="radio" name="gender" value="남" checked> 남자
+        <input type="radio" name="gender" value="여"> 여자
+        <br>
+        취미: 
+        <input type="checkbox" name="hobby" value="게임"> 게임
+        <input type="checkbox" name="hobby" value="야구"> 야구
+        <input type="checkbox" name="hobby" value="여행"> 여행
+        <input type="button" value="전송" onclick="checkForm()">
+    </form>
+
+    <script>
+        function checkForm(){
+            //성별 체크 확인
+            if(frm.gender[0].checked==false
+            && frm.gender[1].checked==false){
+                alert('성별을 체크해주세요');
+                return;
+            }
+            //취미 체크 확인
+            if(frm.hobby[0].checked==false
+                && frm.hobby[1].checked==false
+                && frm.hobby[2].checked==false){
+                alert('취미를 한 개 이상 선택해주세요');
+                return;
+            }
+            frm.submit();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입</h1>
+        <hr>
+        <form action="a.jsp" method="get" name="frm">
+            아이디: <input type="text" name="id"><br>
+            비밀번호: <input type="password" name="password"><br>
+            이름: <input type="text" name="name"><br>
+            성별: 
+                <input type="radio" name="gender" vlaue="남" checked>남자
+                <input type="radio" name="gender" vlaue="여">여자
+            <br>
+            직업:
+                <select name="job" id="">
+                    <option value="">직업을 선택하세요</option>
+                    <option value="학생">학생</option>
+                    <option value="회사원">회사원</option>
+                    <option value="기타">기타</option>
+                </select>
+            취미:
+                <input type="checkbox" name="hobby" value="독서">독서
+                <input type="checkbox" name="hobby" value="게임">게임
+                <input type="checkbox" name="hobby" value="축구">축구
+            <br>
+            자기소개: <textarea name="txt" id="" cols="10" rows="10"></textarea>
+        </form>
+        <input type="button" value="회원가입" onclick="checkForm()">
+
+        <script>
+            function checkForm(){
+                //아이디
+                if(frm.id.value.length==0){
+                    alertTxt(frm.id);
+                    return;
+                }
+                //비밀번호
+                if(frm.password.value.length==0){
+                    alertTxt(frm.password);
+                    return;
+                }
+                //이름
+                if(frm.name.value.length==0){
+                    alertTxt(frm.name);
+                    return;
+                }
+                //직업
+                if(frm.job.options[0].selected){
+                    alertTxt(frm.job)
+                    return;
+                }
+                //취미
+                if(frm.hobby[0].checked==false
+                    && frm.hobby[1].checked==false
+                    && frm.hobby[2].checked==false
+                ){
+                    alertTxt(frm.hobby);
+                    return;
+                }
+                //자기소개
+                if(frm.txt.value.length==0){
+                    alertTxt(frm.txt);
+                    return;
+                }
+
+                return true;
+            }
+            function alertTxt(element){
+                alert(`${element.name}을 입력하세요`);
+                element.focus();
+                return;
+            }
+
+            let form =document.querySelector('form');
+            form.addEventListener('submit',function(event){
+                if(checkForm()==false){
+                    event.preventDefault(); //기본 동작 막기}
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

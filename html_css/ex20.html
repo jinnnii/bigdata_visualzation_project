@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select option</title>
+</head>
+<body>
+    <form action="a.jsp" method="post" name="frm">
+        학년: <select name="grade" id="">
+            <option value="">학년을 선택하세요</option>
+            <option value="1">1학년</option>
+            <option value="2">2학년</option>
+            <option value="3">3학년</option>
+            <option value="4">4학년</option>
+        </select>
+        <br>
+        <input type="button" value="정보확인1" onclick="info1()">
+        <input type="button" value="정보확인2" onclick="info2()">
+        <input type="button" value="전송" onclick="checkForm()">
+    </form>
+    <script>
+        function info1(){
+            alert('옵션개수: '+ frm.grade.length);
+            alert('name:'+ frm.grade.name);
+            alert('type:'+ frm.grade.type); //multiple/select-one
+            alert('선택된 옵션 인덱스 : ' +frm.grade.selectedIndex);
+        }
+        function info2(){
+            alert(`
+        첫번째 속성: ${frm.grade.options[0].text}
+        두번째 속성: ${frm.grade.options[1].text}
+        세번째 속성: ${frm.grade.options[2].text}
+        네번째 속성: ${frm.grade.options[3].text}
+        다섯번째 속성: ${frm.grade.options[4].text}`)
+        alert(`두번째 옵션 value: ${frm.grade.options[1].value}`);
+        alert(`두번째 옵션 선택여부: ${frm.grade.options[1].selected}`);
+        }
+        function checkForm(){
+            if(frm.grade.options[0].selected){
+                alert('학년을 선택해주세요');
+                frm.grade.focus();
+                return
+            }
+            frm.submit();
+        }
+    </script>
+</body>
+</html>
