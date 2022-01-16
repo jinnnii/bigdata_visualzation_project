@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>setTimeout</title>
 </head>
 <body>
-    <div class="container">
-        <button type="button">button</button><br>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div class="number"></div>
+    <input type="button" value="button">
     <script>
-        let num = 0;
-        $('button').on('click',()=>{
-            let str= `
-                <button type="button">button${num}</button><br>
-            `;
-            $('div.container').append(str);
+        let num =0;
+        let divNumber = document.querySelector('div.number');
+        divNumber.innerHTML=num;
+        //setTimeout:  1초에 한번만 실행!
+        let flag = setTimeout(function(){
             num++;
-        })
-        //정적 이벤트 연결 방식
-        //새로 추가된 버튼도 이벤트 적용하기
-        
+            divNumber.innerHTML=num;
+        },1000);
+
+        let btn = document.querySelector('input[type="button"]');
+        btn.addEventListener('click',function(){
+            clearTimeout(flag);
+        });
     </script>
 </body>
 </html>

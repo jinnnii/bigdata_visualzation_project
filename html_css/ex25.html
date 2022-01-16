@@ -4,53 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        article{
-            border:1px solid gray;
-            border-radius: 10px;
-        }
-    </style>
+    <title>setTimeout</title>
 </head>
-
 <body>
-    <div class="container">
-        <section>
-            <article>
-                <h1>title1</h1>
-                <p>content1</p>
-                <button type="button" class="edit">edit</button>
-                <button type="button" class="close">close</button>
-            </article>
-            <article>
-                <h1>title2</h1>
-                <p>content2</p>
-                <button type="button"class="edit">edit</button>
-                <button type="button"class="close">close</button>
-            </article>
-            <article>
-                <h1>title3</h1>
-                <p>content3</p>
-                <button type="button"class="edit">edit</button>
-                <button type="button"class="close">close</button>
-            </article>
-        </section>
-    </div>
-    <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    <div class="number"></div>
+    <input type="button" value="button">
     <script>
-        $('button.close').on('click', function () {
-            //가까운 상위 요소 탐색
-            //$(this).closest('article').remove();
-            //화면 효과 닫기 함수: slideUp() fadeOut() hide() => display:none
-            $(this).closest('article').hide(500);
-            //$(this).closest('article').empty;
-        });
+        let divClock = document.querySelector('div.number');
+        //setInterval 1초마다 실행!
+        let flag = setInterval(function(){
+            let today = new Date();
+            let strTime = today.toLocaleTimeString();
+            divClock.innerHTML=strTime;
+        },1000);
 
-        $('button.edit').on('click', function () {
-            //find('선택자'): 가까운 하위 요소 탐색
-            //prev(): 형제 관계에서 이전 요소 탐색 함수
-            //next(): 형제 관계에서 다음 요소 탐색 함수
-            $(this).prev().append('✔');
+        let btn = document.querySelector('input[type="button"]');
+        btn.addEventListener('click',function(){
+            clearTimeout(flag);
         });
     </script>
 </body>

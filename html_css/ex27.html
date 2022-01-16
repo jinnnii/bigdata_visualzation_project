@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button type="button">button</button><br>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let num = 0;
+        $('button').on('click',()=>{
+            let str= `
+                <button type="button">button${num}</button><br>
+            `;
+            $('div.container').append(str);
+            num++;
+        })
+        //정적 이벤트 연결 방식
+        //새로 추가된 버튼도 이벤트 적용하기
+        
+    </script>
+</body>
+</html>

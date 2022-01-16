@@ -4,37 +4,119 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JQuery</title>
-
-    <style>
-        .box, h2{
-            cursor: pointer;
-        }
-    </style>
-
+    <title>Object</title>
 </head>
 <body>
-    <div class="box">div1</div>
-    <div class="box">div2</div>
-    <h2>head0</h2>
-    <h2>head1</h2>
-    <h2>head2</h2>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <p id="var1"></p>
+    <p id="var2"></p>
+    <p id="var3"></p>
+    <p id="var4"></p>
+    <p id="var5"></p>
+    <p id="var6"></p>
+    <p id="var7"></p>
+    <p id="var8"></p>
+    <p id="var9"></p>
     <script>
-        //반복문은 알아서 돎
-        $('div.box').click(()=>{
-            //클릭할 때마다  div요소에 별문자를 뒤에 추가하려고 함
-            let divBox = event.target; //이벤트 소스 : 이벤트 발생 객체 참조
-            divBox.innerHTML = divBox.innerHTML+'👌';
+        let car ={
+            name: 'Sonata',
+            speed:100,
+            color:'white',
+            speedup: function(){
+                return this.speed+10;
+            }
+        };
 
-            // jQuery방식에서는 이벤트 소스가 this 키워드로 제공됨
-            $(this).append('✨'); //뒤에 추가
-            $(this).prepend('✨'); //앞에 추가
-            $(this).html('✨'); //교체
-        });
-        $('h2').mouseover(() => {
-                $(this).append('👍');
-        })
+        let car2 =new Object();
+        car2.name="Sonata";
+        car2.speed=100;
+        car2.color="blue";
+        car2.speedup = function(){
+            return this.speed+10;
+        }
+
+        // document.querySelector('#var1').innerHTML=`자동차 이름 : ${car['name']}`;
+        // document.querySelector('#var2').innerHTML=`자동차 속도 : ${car.speed}`;
+        // document.querySelector('#var3').innerHTML=`자동차 색상 : ${car.color}`;
+        // document.querySelector('#var4').innerHTML=`자동차 속도 증가 : ${car.speedup()}`;
+
+        // document.querySelector('#var1').innerHTML=`자동차 이름 : ${car2['name']}`;
+        // document.querySelector('#var2').innerHTML=`자동차 속도 : ${car2.speed}`;
+        // document.querySelector('#var3').innerHTML=`자동차 색상 : ${car2.color}`;
+        // document.querySelector('#var4').innerHTML=`자동차 속도 증가 : ${car2.speedup()}`;
+
+
+        // -----------------------------------------------------------------------
+
+        // object
+        function ObjectCar(name,color, speed){
+            this.name=name;
+            this.color=color;
+            this.speed=speed;
+            this.speedup=function(){
+                return this.speed+10;
+            }
+            this.speeddown=function(){
+                return this.speed-10;
+            }
+        }
+        //class
+        class ClassCar{
+            constructor(name,color,speed){
+                this.name=name;
+                this.color=color;
+                this.speed=speed;
+            }
+            speedup(){
+                return this.speed + 10;
+            }
+            speeddown(){
+                return this.speed - 10;
+            }
+        }
+        let objectCar = new ObjectCar('sonatalia','black',20);
+        let classCar = new ClassCar('Sonata','purple',100);
+
+        document.querySelector('#var1').innerHTML=`
+        자동차 이름: ${objectCar.name}<br>
+        자동차 속도: ${objectCar.speed}<br>
+        자동차 색상: ${objectCar.color}<br>
+        자동차 속도 증가: ${objectCar.speedup()}
+        `;
+        document.querySelector('#var2').innerHTML=`
+        자동차 이름: ${classCar.name}<br>
+        자동차 속도: ${classCar.speed}<br>
+        자동차 색상: ${classCar.color}<br>
+        자동차 속도 증가: ${classCar.speedup()}
+        `;
+        // --------------------------------------------------------------------
+
+        let car3 = new Array(
+            ['sonata','blue',100],
+            ['jeep','red',70],
+            ['passt','white',150],
+        )
+        document.querySelector('#var3').innerHTML=`
+            ${car3[0]}<br>
+            ${car3[1]}<br>
+            ${car3[2]}<br>
+        `;
+
+        
+        function digClock(){
+            let d = new Date();
+            document.querySelector('#var4').innerHTML = `
+            ${d.getFullYear()}년 
+            ${d.getMonth() + 1}월 
+            ${d.getDate()}일 
+            ${d.getDay()}요일 
+            ${d.getHours()}시
+            ${d.getMinutes()}분 
+            ${d.getSeconds()}초 
+            `;
+            setTimeout(digClock,1000);
+        }
+        
+        digClock();
     </script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+
+    <style>
+        .box, h2{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">div1</div>
+    <div class="box">div2</div>
+    <h2>head0</h2>
+    <h2>head1</h2>
+    <h2>head2</h2>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //반복문은 알아서 돎
+        $('div.box').click(()=>{
+            //클릭할 때마다  div요소에 별문자를 뒤에 추가하려고 함
+            let divBox = event.target; //이벤트 소스 : 이벤트 발생 객체 참조
+            divBox.innerHTML = divBox.innerHTML+'👌';
+
+            // jQuery방식에서는 이벤트 소스가 this 키워드로 제공됨
+            $(this).append('✨'); //뒤에 추가
+            $(this).prepend('✨'); //앞에 추가
+            $(this).html('✨'); //교체
+        });
+        $('h2').mouseover(() => {
+                $(this).append('👍');
+        })
+    </script>
+</body>
+</html>
