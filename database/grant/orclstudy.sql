@@ -1,0 +1,15 @@
+SELECT *
+    FROM SCOTT.TEMP;
+    
+INSERT INTO SCOTT.TEMP
+    VALUES ('USER','GRANT_TEST');
+    
+COMMIT;
+--SESSION 활성화 시키기 위함
+
+-- ORCLSTUDY에 부여된 롤과 권한 확인
+SELECT *
+    FROM USER_SYS_PRIVS;
+    
+SELECT *
+    FROM USER_ROLE_PRIVS;
