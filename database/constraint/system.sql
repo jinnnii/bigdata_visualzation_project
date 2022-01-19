@@ -1,0 +1,15 @@
+-- DBA_ 접두어를 가진 데이터 사전
+SELECT *
+    FROM DBA_TABLES;
+
+-- DBA_USERS를 사용하여 사용자 정보 알아보기
+SELECT *
+    FROM DBA_USERS
+WHERE USERNAME = 'SCOTT';
+
+-- 뷰 생성 권한 부여
+GRANT CREATE VIEW TO SCOTT;
+
+-- 동의어 생성 권한 부여
+GRANT CREATE SYNONYM TO SCOTT;
+GRANT CREATE PUBLIC SYNONYM TO SCOTT;
