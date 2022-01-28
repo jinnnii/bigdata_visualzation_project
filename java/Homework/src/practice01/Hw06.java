@@ -1,4 +1,4 @@
-package Homework;
+package practice01;
 
 public class Hw06 {
 

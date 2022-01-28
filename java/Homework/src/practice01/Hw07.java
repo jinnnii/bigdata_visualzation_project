@@ -1,4 +1,4 @@
-package Homework;
+package practice01;
 
 import java.util.Scanner;
 
@@ -24,9 +24,12 @@ public class Hw07 {
 		}
 		
 		for(int i=0; i<array1.length;i++) {
+			int sum = 0;
 			for(int j=0; j<array1[i].length; j++) {
-				result[i][j] = array1[i]*array2[j]
+				for(int k=0 ; k<array)
+				sum += array1[i][j]*array2[j][i];
 			}
+			result[i][]
 		}
 		sc.close();
 
