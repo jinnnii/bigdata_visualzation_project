@@ -16,11 +16,16 @@ public class CompactDisc extends Product {
 		Scanner sc = new Scanner(System.in);
 		Product p= super.add();
 		System.out.print("앨범제목>>");
-		String discTitle = sc.next();
+		String albumTitle = sc.nextLine();
 		System.out.print("가수>>");
-		String singer = sc.next();
+		String singer = sc.nextLine();
 		return new CompactDisc(p.getId(),p.getComment(),p.getProductor(),p.getPrice(),
-				discTitle,singer);
+				albumTitle,singer);
+	}
+	
+	public void display() {
+		super.display();
+		System.out.printf("%s\t%s",albumTitle,singer);
 	}
 	
 	

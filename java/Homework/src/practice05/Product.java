@@ -3,12 +3,15 @@ package practice05;
 import java.util.Scanner;
 
 public class Product {
-	private int id;
+	private int id = 0;
 	private String comment;
 	private String productor;
 	private int price;
+	static int prodCnt =0;
 	
-	public Product() {}
+	public Product() {
+		prodCnt++;
+	}
 	public Product(int id, String comment, String productor, int price) {
 		super();
 		this.id = id;
@@ -52,12 +55,16 @@ public class Product {
 	public Product add() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("상품설명>>");
-		String comment = sc.next();
+		String comment = sc.nextLine();
 		System.out.print("생산자>>");
-		String productor = sc.next();
+		String productor = sc.nextLine();
 		System.out.print("가격>>");
 		int price = sc.nextInt();
-		return new Product(id, comment, productor,price);
+		return new Product(this.prodCnt, comment, productor,price);
+	}
+	
+	public void display() {
+		System.out.printf("%d\t%s\t%s\t%d\t",id,comment,productor,price);
 	}
 	
 }

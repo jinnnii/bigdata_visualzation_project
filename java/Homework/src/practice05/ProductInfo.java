@@ -2,9 +2,7 @@ package practice05;
 
 import java.util.Scanner;
 
-public class ProjuctInfo {
-
-	private static int prodCnt = 0;
+public class ProductInfo {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -17,29 +15,47 @@ public class ProjuctInfo {
 
 			System.out.println("선택>>");
 			selectNum = sc.nextInt();
-
+			
 			switch (selectNum) {
 			case 1:
-				if(prodCnt>products.length) continue;
+				if (Product.prodCnt > products.length - 1) {
+					System.out.println("상품 개수가 초과했습니다.");
+					continue;
+				}
 				System.out.print("상품의 종류 선택 : 1 책 | 2 앨범 | 3 회화책");
 				int option = sc.nextInt();
-				Product p = null;
+				Product product = null;
 				switch (option) {
 				case 1:
-					p = new Book();
+					product = new Book();
+					break;
 				case 2:
-					p = new CompactDisc();
+					product = new CompactDisc();
+					break;
 				case 3:
-					p = new ConversatioBook();
+					product = new ConversatioBook();
+					break;
+				default:
+					System.out.println("잘못된 입력");
+					continue;
 				}
-				products[prodCnt] = p.add();
-				prodCnt++;
+
+				products[Product.prodCnt - 1] = product.add();
 				break;
 			case 2:
+				System.out.print("상품 아이디>>");
+				int id = sc.nextInt();
+				products[id - 1].display();
+				System.out.println();
 				break;
 			case 3:
+				for (int i=0; i<Product.prodCnt;i++) {
+					products[i].display();
+					System.out.println();
+				}
 				break;
 			case 4:
+				System.out.println("프로그램 종료");
 				break;
 			default:
 				System.out.println("잘못된 입력");
@@ -50,7 +66,8 @@ public class ProjuctInfo {
 	}
 
 //	@SuppressWarnings("resource")
-//	public static Product addProduct() {
+//	public static Product
+//	addProduct() {
 //		Scanner sc = new Scanner(System.in);
 //
 //		System.out.print("상품의 종류 선택 : 1 책 | 2 앨범 | 3 회화책");

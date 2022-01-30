@@ -15,10 +15,14 @@ public class ConversatioBook extends Book {
 		Book b = (Book)p;
 		Scanner sc = new Scanner(System.in);
 		System.out.print("언어>>");
-		String leng = sc.next();
+		String leng = sc.nextLine();
 		return new ConversatioBook(b.getId(),b.getComment(),b.getProductor(),b.getPrice(),
 				b.getBookTitle(), b.getAuthor(),
 				leng);
+	}
+	public void display() {
+		super.display();
+		System.out.printf("%s",language);
 	}
 	
 }

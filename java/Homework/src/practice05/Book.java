@@ -34,10 +34,16 @@ public class Book extends Product{
 		Product p= super.add();
 		Scanner sc = new Scanner(System.in);
 		System.out.print("책제목>>");
-		String bookTitle = sc.next();
+		
+		String bookTitle = sc.nextLine();
 		System.out.print("저자>>");
-		String author = sc.next();
+		String author = sc.nextLine();
 		return new Book(p.getId(),p.getComment(),p.getProductor(),p.getPrice(),
 				bookTitle,author);
+	}
+	
+	public void display() {
+		super.display();
+		System.out.printf("%s\t%s",bookTitle,author);
 	}
 }
