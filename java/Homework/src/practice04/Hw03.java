@@ -9,7 +9,8 @@ public class Hw03 {
 //		students[1] = new Student(2, "박경미", "컴공", 70, 80, 75);
 //		students[2] = new Student(3, "하성호", "전컴", 80, 85, 90);
 		Scanner sc = new Scanner(System.in);
-		for (int i = 0; i < students.length; i++) {
+		for (int i = 0; i < students
+				.length; i++) {
 			System.out.println("학번을 입력하세요");
 			int sno = sc.nextInt();
 
