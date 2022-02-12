@@ -15,8 +15,8 @@ public class Hw01 {
 				System.out.print(array[i][j]+" ");
 				sum+=array[i][j];
 			}
-			System.out.print("합계: "+sum+" ");
-			System.out.printf("평균: %.1f",(float)sum/array[i].length);
+			System.out.print(sum+" ");
+			System.out.printf("%.1f",(float)sum/array[i].length);
 			System.out.println();
 		}
 	}
