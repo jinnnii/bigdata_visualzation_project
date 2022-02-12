@@ -1,0 +1,2 @@
+InputStreamReaderTest
+한글과 영문이 모두 포함되어있습니다.
