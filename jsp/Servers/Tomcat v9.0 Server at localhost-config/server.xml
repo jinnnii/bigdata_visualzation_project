@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 80
     -->
-    <Connector URIEncoding="utf-8" connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -152,14 +152,15 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="test" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:test"/><Context docBase="mvcBoard" path="/mvcBoard" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard">
-			<Resource name="jdbc/myoracle" auth="Container" 
-			type="javax.sql.DataSource" 
-			driverClassName="oracle.jdbc.OracleDriver" 
-			url="jdbc:oracle:thin:@localhost:1521:XE" 
-			username="scott" password="tiger" 
-			maxActive="20" maxIdle="10" maxWait="-1"/>
-	</Context></Host>
+      <Context docBase="mvcBoard" path="/mvcBoard" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard">
+      <Resource name="jdbc/myoracle" auth="Container" type="javax.sql.DataSource"
+						driverClassName="oracle.jdbc.OracleDriver"
+						url="jdbc:oracle:thin:@localhost:1521:XE"
+						username="scott" password="tiger"
+						maxActive="20" maxIdle="10" maxWait="-1" />
+      </Context>
+      
+      <Context docBase="ajaxTest" path="/ajaxTest" reloadable="true" source="org.eclipse.jst.jee.server:ajaxTest"/><Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/></Host>
     </Engine>
   </Service>
 </Server>

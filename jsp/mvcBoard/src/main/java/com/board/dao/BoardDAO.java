@@ -62,8 +62,7 @@ public class BoardDAO {
 	}
 
 	public void insertBoard(BoardVO bvo) {
-		String sql = "INSERT INTO BOARD(NUM, NAME, EMAIL, PASS, TITLE, CONTENT)"
-				+ "VALUES(BOARD_SEQ.NEXTVAL, ?,?,?,?,?";
+		String sql = "INSERT INTO BOARD(NUM, NAME, EMAIL, PASS, TITLE, CONTENT) VALUES(BOARD_SEQ.NEXTVAL,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -126,6 +125,7 @@ public class BoardDAO {
 				bvo.setNum(rs.getInt("num"));
 				bvo.setName(rs.getString("name"));
 				bvo.setEmail(rs.getString("email"));
+				bvo.setPass(rs.getString("pass"));
 				bvo.setTitle(rs.getString("title"));
 				bvo.setContent(rs.getString("content"));
 				bvo.setReadCount(rs.getInt("readcount"));
@@ -142,7 +142,7 @@ public class BoardDAO {
 	}
 
 	public void updateBoard(BoardVO bvo) {
-		String sql = "UPDATE BOARD SET NAME=?, EMAIL=?, PASS=?, TITLE=?, CONTENT=?, WHERE NUM=?";
+		String sql = "UPDATE BOARD SET NAME=?, EMAIL=?, PASS=?, TITLE=?, CONTENT=? WHERE NUM=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -157,7 +157,8 @@ public class BoardDAO {
 			pstmt.setString(4, bvo.getTitle());
 			pstmt.setString(5, bvo.getContent());
 			pstmt.setInt(6, bvo.getNum());
-
+			
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
