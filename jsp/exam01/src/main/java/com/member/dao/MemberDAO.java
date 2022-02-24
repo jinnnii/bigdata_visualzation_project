@@ -1,5 +1,4 @@
-package com.product.dao;
-
+package com.member.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,22 +6,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import conn.product.vo.ProductVO;
+import com.member.vo.MemberVO;
+
 import util.DBManager;
 
-public class ProductDAO {
-	private ProductDAO() {
-		
+public class MemberDAO {
+	private MemberDAO() {
 	}
-	private static ProductDAO instance = new ProductDAO();
-	
-	public static ProductDAO getInstance() {
+
+	private static MemberDAO instance = new MemberDAO();
+
+	public static MemberDAO getInstance() {
 		return instance;
 	}
 	
-	public List<ProductVO> selectAllProduct(){
-		String sql = "SELECT * FROM PRODUCT ORDER BY PID";
-		List<ProductVO> list = new ArrayList<ProductVO>();
+	public List<MemberVO> selectAllMember(){
+		String sql = "SELECT * FROM JOIN_MEMBER";
+		List<MemberVO> list = new ArrayList<MemberVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -34,13 +34,15 @@ public class ProductDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				ProductVO pvo = new ProductVO();
-				pvo.setPid(rs.getInt("pid"));
-				pvo.setPname(rs.getString("pname"));
-				pvo.setPrice(rs.getLong("price"));
-				pvo.setRegdate(rs.getTimestamp("regdate"));
+				MemberVO mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				mvo.setPasswd(rs.getString("passwd"));
+				mvo.setName(rs.getString("name"));
+				mvo.setAddr(rs.getString("address"));
+				mvo.setEmail(rs.getString("email"));
+				mvo.setRegdate(rs.getTimestamp("regdate"));
 				
-				list.add(pvo);
+				list.add(mvo);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -51,8 +53,8 @@ public class ProductDAO {
 		return list;
 	}
 	
-	public void insertProduct(ProductVO pvo) {
-		String sql="INSERT INTO PRODUCT VALUES(?,?,?,SYSDATE)";
+	public void insertMember(MemberVO mvo) {
+		String sql="INSERT INTO JOIN_MEMBER VALUES(?,?,?,?,?,SYSDATE)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
@@ -60,9 +62,11 @@ public class ProductDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, pvo.getPid());
-			pstmt.setString(2, pvo.getPname());
-			pstmt.setLong(3, pvo.getPrice());
+			pstmt.setString(1, mvo.getId());
+			pstmt.setString(2, mvo.getPasswd());
+			pstmt.setString(3, mvo.getName());
+			pstmt.setString(4, mvo.getEmail());
+			pstmt.setString(5, mvo.getAddr());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -70,11 +74,12 @@ public class ProductDAO {
 		}finally {
 			DBManager.close(conn,pstmt);
 		}
+
 	}
 	
-	public ProductVO selectOneProduct(int pid) {
-		String sql="SELECT * FROM PRODUCT WHERE PID=?";
-		ProductVO pvo = null;
+	public MemberVO selectOneMember(String id) {
+		String sql="SELECT * FROM JOIN_MEMBER WHERE ID=?";
+		MemberVO mvo = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -82,15 +87,17 @@ public class ProductDAO {
 		try {
 			conn = DBManager.getConnection();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, pid);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				pvo = new ProductVO();
-				pvo.setPid(rs.getInt(rs.getInt("pid")));
-				pvo.setPname(rs.getString("pname"));
-				pvo.setPrice(rs.getLong("price"));
-				pvo.setRegdate(rs.getTimestamp("regdate"));
+				mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				mvo.setPasswd(rs.getString("passwd"));
+				mvo.setName(rs.getString("name"));
+				mvo.setEmail(rs.getString("email"));
+				mvo.setAddr(rs.getString("address"));
+				mvo.setRegdate(rs.getTimestamp("regdate"));
 			}
 			
 		} catch (SQLException e) {
@@ -100,11 +107,11 @@ public class ProductDAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		
-		return pvo;
+		return mvo;
 	}
 	
-	public void updateProduct(ProductVO pvo) {
-		String sql ="UPDATE PRODUCT SET PNAME=?, PRICE=? WHERE PID=?";
+	public void updateMember(MemberVO mvo) {
+		String sql ="UPDATE JOIN_MEMBER SET PASSWD=?, NAME=?, EMAIL=?, ADDRESS=? WHERE ID=?";
 		Connection conn = null;
 		PreparedStatement pstmt =null;
 		
@@ -112,9 +119,11 @@ public class ProductDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, pvo.getPname());
-			pstmt.setLong(2, pvo.getPrice());
-			pstmt.setInt(3, pvo.getPid());
+			pstmt.setString(1, mvo.getPasswd());
+			pstmt.setString(2, mvo.getName());
+			pstmt.setString(3, mvo.getEmail());
+			pstmt.setString(4, mvo.getAddr());
+			pstmt.setString(5, mvo.getId());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -125,8 +134,8 @@ public class ProductDAO {
 		}
 	}
 	
-	public void deleteProduct(int pno) {
-		String sql="DELETE FROM PRODUCT WHERE PID=?";
+	public void deleteMember(String id) {
+		String sql="DELETE FROM JOIN_MEMBER WHERE ID=?";
 		Connection conn = null;
 		PreparedStatement pstmt =null;
 		
@@ -134,7 +143,7 @@ public class ProductDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, pno);
+			pstmt.setString(1, id);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -144,4 +153,5 @@ public class ProductDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
+
 }

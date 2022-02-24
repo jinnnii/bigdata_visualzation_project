@@ -9,10 +9,15 @@
 <title>제품 목록</title>
 </head>
 <body>
+<script>
+	function deleteConfirm(){
+		return confirm("정말 삭제하시겠습니까?")
+	}
+</script>
 	<h2>제품 목록</h2>
 	<table border="1">
 		<tr>
-			<td colspan="4" style="text-align: right;">
+			<td colspan="6" style="text-align: right;">
 				<a href="productWrite">제품 등록</a>
 			</td>
 		</tr>
@@ -21,15 +26,17 @@
 			<th>제품명</th>
 			<th>제품 가격</th>
 			<th>등록일</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 		<c:forEach var="product" items="${productList}">
 		<tr>
 			<td>${product.pid }</td>
 			<td>${product.pname }</td>
 			<td>${product.price }</td>
-			<td><fmt:formatDate type="both" value="${product.reqdate }"/></td>
+			<td><fmt:formatDate type="both" value="${product.regdate }"/></td>
 			<td><a href="productUpdate?pid=${product.pid}">수정</a></td>
-			<td><a href="productDelete?pid=${product.pid}">삭제</a></td>
+			<td><a href="productDelete?pid=${product.pid}" onclick="return deleteConfirm()">삭제</a></td>
 		</tr>
 		</c:forEach>
 	</table>
