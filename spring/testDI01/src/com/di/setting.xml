@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<!-- id=변수 class=넣을 클래스(객체, 인터페이스x) -->
+
+	<!-- 1....uset property -->
+	<!-- new DIExam() -->
+	<!-- <bean id="exam" class="com.di.entity.DIExam"> -->
+	<!-- <property name="kor" value="90"/> -->
+	<!-- <property name="eng" value="70"/> -->
+	<!-- <property name="math" value="60"/> -->
+	<!-- <property name="com" value="50"/> -->
+	<!-- </bean> -->
+
+
+	<!-- 2....use constructor -->
+	<!-- <bean id="exam" class="com.di.entity.DIExam"> -->
+	<!-- <constructor-arg name="kor" value="90"/> -->
+	<!-- <constructor-arg name="com" value="70"/> -->
+	<!-- <constructor-arg index="2" value="60"/> -->
+	<!-- <constructor-arg index="1" value="50"/> -->
+	<!-- </bean> -->
+
+	<!-- 3....use p: -->
+	<!-- setting namespaces=> check [p] -->
+	<!-- <bean id="exam" class="com.di.entity.DIExam" p:kor="1" p:eng="1" p:math="1" 
+		p:com="1"/> -->
+
+	<!-- 4...List setting -->
+	<bean id="exam" class="com.di.entity.DIExam">
+		<property name="kor" value="90" />
+		<property name="eng" value="70" />
+		<property name="math" value="60" />
+		<property name="com" value="50" />
+		<property name="majors">
+			<list>
+				<value>computer</value>
+				<value>math</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 1. use util List by bean-->
+<!-- 	<bean id="exams" class="java.util.ArrayList"> -->
+<!-- 		<constructor-arg> -->
+<!-- 			<list> -->
+<!-- 				<bean class="com.di.entity.DIExam" p:kor="1" p:eng="1" -->
+<!-- 					p:math="1" p:com="1" /> -->
+<!-- 				<ref bean="exam" /> -->
+<!-- 			</list> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+
+	<!-- 2. use util List by util:list -->
+	<util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="com.di.entity.DIExam" p:kor="1" p:eng="1" p:math="1"
+			p:com="1" />
+		<ref bean="exam" />
+	</util:list>
+
+	<!-- <new LineExamConsole() -->
+	<!-- <bean id="console" class="com.di.ui.LineExamConsole"> name="exam" == 
+		setExam() name find setExam() method!! <property name="exam" ref="exam"></property> 
+		</bean> -->
+
+	<bean id="console" class="com.di.ui.GridExamConsole">
+		<property name="exam" ref="exam"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="score1" class="com.di.entity.Score">
+	<constructor-arg value="java"/>
+	<constructor-arg value="85"/>
+</bean>
+
+<bean id="score2" class="com.di.entity.Score">
+	<constructor-arg value="db"/>
+	<constructor-arg value="90"/>
+</bean>
+
+<bean id="stud1" class="com.di.entity.Student">
+	<constructor-arg value="홍길동"/>
+	<constructor-arg value="1"/>
+	<constructor-arg value="컴공"/>
+	<constructor-arg name="scoreList">
+		<list>
+			<ref bean="score1"/>
+			<ref bean="score2"/>
+		</list>
+	</constructor-arg>	
+</bean>
+<bean id="member" class="com.di.entity.Member">
+	<constructor-arg value="홍길동"/>
+	<constructor-arg value="20"/>
+	<constructor-arg value="남자"/>
+	<constructor-arg name="hobbys">
+		<list>
+			<value>수영</value>
+			<value>등산</value>
+		</list>
+	</constructor-arg>
+</bean>
+<bean id="console" class="com.di.ui.GridMemberConsole">
+	<property name="member" ref="member"/>
+</bean>
+
+</beans>
