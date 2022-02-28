@@ -2,15 +2,24 @@ package com.di.entity; //Model
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("exam1")
 public class DIExam implements Exam{
+//	@Value("10")
 	private int kor;
+//	@Value("20")
 	private int eng;
+//	@Value("30")
 	private int math;
+//	@Value("40")
 	private int com;
 	private List<String> majors;
 	
 	public DIExam() {
 		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public DIExam(int kor, int eng, int math, int com) {
@@ -21,6 +30,15 @@ public class DIExam implements Exam{
 		this.com = com;
 	}
 
+
+	public DIExam(int kor, int eng, int math, int com, List<String> majors) {
+		super();
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.com = com;
+		this.majors = majors;
+	}
 
 	public int getKor() {
 		return kor;

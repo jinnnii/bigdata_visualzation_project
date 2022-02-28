@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:component-scan base-package="com.di"/>
+	<!-- <context:annotation-config/> -->
+	<!-- <bean id="exam1" class="com.di.entity.DIExam">
+		<property name="kor" value="90" />
+		<property name="eng" value="70" />
+		<property name="math" value="60" />
+		<property name="com" value="50" />
+		<property name="majors">
+			<list>
+				<value>computer</value>
+				<value>math</value>
+			</list>
+		</property>
+	</bean> -->
+
+	<!-- <bean id="exam2" class="com.di.entity.DIExam" p:kor="10" p:eng="10" 
+		p:math="10" p:com="10"/> -->
+
+	<!-- <bean id="console" class="com.di.ui.GridExamConsole">
+		<property name="exam" ref="exam"></property>
+	</bean> -->
+</beans>
