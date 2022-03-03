@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="border border-info p-4 rounded">
 	<h5>게시판 글목록</h5>
 
@@ -21,84 +22,20 @@
 				<th scope="col" class="text-center">번호</th>
 				<th scope="col" class="text-center">제목</th>
 				<th scope="col" class="text-center">작성자</th>
-				<th scope="col" class="text-center">작성일</th>
+				<th scope="col" class="text-center">내용</th>
 				<th scope="col" class="text-center">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
+		<c:forEach items="${list}" var="board">
 			<tr>
-				<td class="text-center">10</td>
-				<td><a href="/board/boardContent.html">Lorem ipsum dolor
-						sit amet, consectetur adipiscing elit.</a></td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15000</td>
+				<td class="text-center">${board.bno }</td>
+				<td><a href="/board/boardContent.html">${board.title }</a></td>
+				<td class="text-center">${board.writer }</td>
+				<td class="text-center">${board.content }</td>
+				<td class="text-center">0</td>
 			</tr>
-			<tr>
-				<td class="text-center">9</td>
-				<td>Vivamus viverra porttitor commodo.</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">150</td>
-			</tr>
-			<tr>
-				<td class="text-center">8</td>
-				<td>In pulvinar fermentum erat a tincidunt. Nulla id magna sit
-					...</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15000</td>
-			</tr>
-			<tr>
-				<td class="text-center">7</td>
-				<td>Sed diam velit, dictum a iaculis sed, tempor sed mi.</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">150</td>
-			</tr>
-			<tr>
-				<td class="text-center">6</td>
-				<td>Nullam ac dignissim diam. Mauris vitae magna ipsum,</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15</td>
-			</tr>
-			<tr>
-				<td class="text-center">5</td>
-				<td>eget vehicula metus. In euismod sollicitudin lorem eu.</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15000</td>
-			</tr>
-			<tr>
-				<td class="text-center">4</td>
-				<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">1500</td>
-			</tr>
-			<tr>
-				<td class="text-center">3</td>
-				<td>Vivamus viverra porttitor commodo.</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15</td>
-			</tr>
-			<tr>
-				<td class="text-center">2</td>
-				<td>In pulvinar fermentum erat a tincidunt. Nulla id magna sit
-					...</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">15</td>
-			</tr>
-			<tr>
-				<td class="text-center">1</td>
-				<td>Nullam ac dignissim diam. Mauris vitae magna ipsum,</td>
-				<td class="text-center">user1</td>
-				<td class="text-center">2021.08.20</td>
-				<td class="text-center">150</td>
-			</tr>
+		</c:forEach>	
 		</tbody>
 	</table>
 
