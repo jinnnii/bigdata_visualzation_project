@@ -1,4 +1,4 @@
-package com.kej.boardsystem01;
+package com.kej.boardsystem01.test;
 
 import java.util.List;
 
@@ -25,5 +25,13 @@ public class MapperTest {
 		for(BoardVO vo:list) {
 			log.info(vo);
 		}
+	}
+	@Test
+	public void testInsert() {
+		BoardVO vo = new BoardVO();
+		vo.setTitle("제목99--");
+		vo.setContent("내용99--");
+		vo.setWriter("작성자99--");
+		mapper.insert(vo);
 	}
 }

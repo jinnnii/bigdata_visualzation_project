@@ -10,14 +10,19 @@ import com.kej.boardsystem01.domain.BoardVO;
 
 @Mapper
 public interface BoardMapper {
-	@Select("select * from tbl_board where bno>0")
+//	@Select("select * from tbl_board where bno>0")
 	public List<BoardVO> getList();
 	
-	public void insertBoard(BoardVO vo);
+	public void insert(BoardVO vo);
+	//public void insert(BoardVO, int bno) //error!! 파라미터는 한개만
 	
-	public BoardVO getBoard(int bno);
+	//public void insertSelectKey(BoardVO vo);
 	
-	public void updateBoard(BoardVO vo);
+	public BoardVO read(int bno);
 	
-	public void deleteBoard(int bno);
+	public int update(BoardVO vo);
+	
+	public int delete(int bno);
+	
+	public int boardCount();
 }

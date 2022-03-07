@@ -1,4 +1,4 @@
-package com.kej.boardsystem01;
+package com.kej.boardsystem01.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
