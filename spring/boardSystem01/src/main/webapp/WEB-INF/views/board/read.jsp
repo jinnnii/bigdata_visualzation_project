@@ -55,6 +55,7 @@
 	<div class="form-group text-right">
 		<button type="button" class="btn btn-secondary btn-sm" id="btnUpdate">수정하기</button>
 		<button type="button" class="btn btn-secondary btn-sm" id="btnDelete">삭제하기</button>
+		<button type="button" class="btn btn-secondary btn-sm" id="btnList">목록</button>
 	</div>
 
 
@@ -81,6 +82,10 @@
 		if(confirm("정말 삭제할까요??")){
 			location.href="/board/delete?bno=${board.bno}";
 		}
+	})
+	
+	$("#btnList").click(()=>{		
+		location.href="/board/list?pageNum=${pageNum}&field=${field}&word=${word}";
 	})
 </script>
 <%@ include file="../includes/footer.jsp"%>

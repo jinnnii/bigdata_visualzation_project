@@ -1,5 +1,6 @@
 package com.kej.boardsystem01.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.kej.boardsystem01.domain.BoardVO;
@@ -15,6 +16,13 @@ public interface BoardService {
 
 	boolean delete(int bno);
 	
-	int boardCount();
+//	int boardCount();
+	
+	List<BoardVO> findPage(HashMap<String, Object> hm);
+	
+	List<BoardVO> findAll(HashMap<String, Object> hm);
+
+	int boardCount(HashMap<String, Object> hm);
+
 }
 

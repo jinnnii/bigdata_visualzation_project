@@ -1,5 +1,6 @@
 package com.kej.boardsystem01.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public BoardVO read(int bno) {
+		boardMapper.hitcount(bno);
 		return boardMapper.read(bno);
 	}
 
@@ -41,9 +43,24 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.delete(bno)==1;
 	}
 
+//	@Override
+//	public int boardCount() {
+//		return boardMapper.boardCount();
+//	}
+
 	@Override
-	public int boardCount() {
-		return boardMapper.boardCount();
+	public List<BoardVO> findPage(HashMap<String,Object> hm) {
+		return boardMapper.findPage(hm);
+	}
+
+	@Override
+	public List<BoardVO> findAll(HashMap<String, Object> hm) {
+		return boardMapper.findAll(hm);
+	}
+
+	@Override
+	public int boardCount(HashMap<String, Object> hm) {
+		return boardMapper.boardCount(hm);
 	}
 
 	

@@ -1,10 +1,9 @@
 package com.kej.boardsystem01.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import com.kej.boardsystem01.domain.BoardVO;
 
@@ -24,5 +23,13 @@ public interface BoardMapper {
 	
 	public int delete(int bno);
 	
-	public int boardCount();
+//	public int boardCount();
+	
+	public int hitcount(int bno);
+	
+	public List<BoardVO> findPage(HashMap<String,Object> hm);
+
+	public int boardCount(HashMap<String, Object> hm);
+
+	public List<BoardVO> findAll(HashMap<String, Object> hm);
 }

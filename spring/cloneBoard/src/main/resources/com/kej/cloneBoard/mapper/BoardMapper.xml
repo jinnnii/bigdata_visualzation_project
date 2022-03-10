@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kej.cloneBoard.mapper.BoardMapper">
+	<select id="getList"
+		resultType="com.kej.cloneBoard.domain.BoardVO">
+		select * from tbl_board where bno>0
+	</select>
+	
+	<select id="getBoard"
+		resultType="com.kej.cloneBoard.domain.BoardVO">
+		select * from tbl_board where bno=#{bno}
+			order by bno desc
+	</select>
+	
+	<insert id="insertBoard">
+		insert into tbl_board(title, content, writer)
+			values(#{title}, #{content}, #{writer})
+	</insert>
+	
+	<update id="updateBoard">
+		update tbl_board set title=#{title}, content=#{content}, updatedate=now()
+			where bno=#{bno}
+	</update>
+	
+	<delete id="deleteBoard">
+		delete from tbl_board where bno=#{bno}
+	</delete>
+
+</mapper>
