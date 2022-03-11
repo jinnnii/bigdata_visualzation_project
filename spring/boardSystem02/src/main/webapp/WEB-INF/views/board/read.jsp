@@ -35,7 +35,7 @@
 
 	<div class="form-group">
 		<label for="num">글번호</label> <input type="text" class="form-control"
-			id="num" name="num" value="${board.bno }" readonly="readonly">
+			id="bno" name="bno" value="${board.bno }" readonly="readonly">
 	</div>
 	<div class="form-group">
 		<label for="title">제목</label> <input type="text" class="form-control"
@@ -64,16 +64,37 @@
 	<div class="container mt-5">
 		<div class="form-group">
 			<label for="comment">Comment:</label>
-			<textarea class="form-control" rows="5" id="msg" name="text"></textarea>
+			<textarea class="form-control" rows="5" id="reply" name="text"></textarea>
 		</div>
-		<button type="button" class="btn btn-success" id="commentBtn">Comment
+		<button type="button" class="btn btn-success" id="replyBtn">Reply
 			Write</button>
 	</div>
-	<div id="replyResult">댓글 리스트 영역</div>
+	<div id="replyResult"></div>
 
 
 </div>
 <script type="text/javascript">
+	const init= ()=>{
+		$.ajax({
+			type: "get",
+			url : "/replies/getList/${board.bno}.json",
+			cotentType: "application/json; charset=utf-8"
+		}).done((resp)=>{
+			var str= "<table class='table table-hover mt-3'>";
+			$.each(resp, (key,val)=>{
+				str+="<tr>";
+				str+="<td>"+val.replyer+"</td>";
+				str+="<td>"+val.reply+"</td>";
+				str+="<td>"+val.replydate+"</td>";
+				if("${sessionScope.sMember.id}"==val.replyer){
+					str+="<td><a href='javascript:fdel("+val.rno+")'>삭제</a></td>";
+				}
+				str+="</tr>";
+			})
+			str+="</table>";
+			$("#replyResult").html(str);	
+		})
+	}
 	$("#btnUpdate").click(()=>{		
 		if(confirm("정말 수정할까요?")){
 			location.href="/board/edit?bno=${board.bno}";
@@ -89,5 +110,42 @@
 	$("#btnList").click(()=>{		
 		location.href="/board/list?pageNum=${pageNum}&field=${field}&word=${word}";
 	})
+	
+	$("#replyBtn").click(()=>{
+		if(${empty sessionScope.sMember}){
+			alert("로그인이 필요합니다.");
+			location.href="/member/login";
+		}
+		data={
+				"bno": $("#bno").val(),
+				"reply" : $("#reply").val(),
+				"replyer" : "${sMember.id}"
+		}
+		$.ajax({
+			type:"post",
+			url:"/replies/new",
+			contentType : "application/json; charset=utf-8",
+			data: JSON.stringify(data)
+		}).done((resp)=>{
+			alert("댓글 추가 성공");
+			init();
+		}).fail(()=>{
+			alert("댓글 추가 실패");
+		})
+	})
+	
+	function fdel(rno){
+		$.ajax({
+			type:"delete",
+			url:"/replies/"+rno,
+		}).done((resp)=>{
+			alert("댓글 삭제 완료");
+			init();
+		}).fail(()=>{
+			alert("댓글 삭제 실패")
+		})
+	}
+	
+	init();
 </script>
 <%@ include file="../includes/footer.jsp"%>

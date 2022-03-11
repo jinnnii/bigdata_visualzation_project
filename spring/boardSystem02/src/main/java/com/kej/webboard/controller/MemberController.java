@@ -64,12 +64,12 @@ public class MemberController {
 	
 	@PostMapping("idCheck")
 	@ResponseBody
-	public String idCheck(@RequestBody String id) {
+	public String idCheck(String id) {
 		int cnt = memberService.idCheck(id);
 		if(cnt!=0) {
-			return "available"+cnt+id;
+			return "unavailable";
 		}else {
-			return "unavailable"+cnt+id;
+			return "available";
 		}
 	}
 }

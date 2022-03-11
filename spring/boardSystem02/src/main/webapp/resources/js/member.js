@@ -76,18 +76,18 @@ $(document).ready(() => {
 			}
 		})
 	})
-	
-	$("#btnIdCheck").click(()=>{
+
+	$("#btnIdCheck").click(() => {
 		$.ajax({
-			type:"post",
-			url:"member/join",
-			data:{
-				"id":$("#id").val()
+			type: "post",
+			url: "/member/idCheck",
+			data: {
+				"id": $("#id").val()
 			}
-		}).done((res)=>{
-			if(res=="available"){
+		}).done((res) => {
+			if (res == "available") {
 				alert("사용할 수 있는 아이디");
-			}else{
+			} else {
 				alert("사용할 수 없는 아이디");
 			}
 		})
