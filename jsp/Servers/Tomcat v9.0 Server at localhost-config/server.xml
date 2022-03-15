@@ -152,20 +152,13 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="mvcTest" path="/mvcTest" reloadable="true" source="org.eclipse.jst.jee.server:mvcTest">
-      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/test_oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="scott"/>
-      </Context>
       
-      <Context docBase="mvcBoard" path="/mvcBoard" reloadable="true" source="org.eclipse.jst.jee.server:mvcBoard">
-      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/myoracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="scott"/>
-      </Context>
-      <Context docBase="ajaxTest" path="/ajaxTest" reloadable="true" source="org.eclipse.jst.jee.server:ajaxTest">
-      </Context>
-      <Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/>
       
-      <Context docBase="exam01" path="/exam01" reloadable="true" source="org.eclipse.jst.jee.server:exam01">
-      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/exam01_oracle" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="scott"/>
-      </Context>
+      
+      
+      
+      
+      
       
       </Host>
     </Engine>

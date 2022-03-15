@@ -84,4 +84,8 @@
 		order by bno desc
 		limit #{pageStart},#{pageSize}
 	</select>
+	
+	<update id="replyCountUpdate">
+		update tbl_board set replycount=replycount+#{amount} where bno=#{bno}
+	</update>
 </mapper>
