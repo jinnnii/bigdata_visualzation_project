@@ -34,7 +34,7 @@
 	<insert id="insert">
 		insert into tbl_board(title, content, writer)
 		values(#{title},
-		#{content}, #{writer}) <!--getter함수로 꺼내옴 -->
+		#{content}, #{writer})
 	</insert>
 
 	<!-- <insert id="insertSelectKey"> -->
@@ -99,8 +99,8 @@
 	</insert>
 	
 	<insert id="fileRegister">
-		insert into tbl_file(bno, savefolder, orginfile, savefile, filetype)
-			value(#{bno},#{savafolder},#{originfile},#{savefile},#{filetype})
+		insert into tbl_file(bno, savefolder, originfile, savefile, filetype)
+			value(#{bno},#{savefolder},#{originfile},#{savefile},#{filetype})
 	</insert>
 	
 	<select id="getFile" resultType="com.kej.webboard.domain.FileVO">

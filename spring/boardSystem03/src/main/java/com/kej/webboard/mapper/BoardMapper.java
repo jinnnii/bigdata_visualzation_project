@@ -37,4 +37,6 @@ public interface BoardMapper {
 	public List<FileVO> getFileList(int bno);
 	public int fileRegister(FileVO vo);
 	public FileVO getFile(int fno);
+	
+	public void insertSelectKey(BoardVO vo);
 }

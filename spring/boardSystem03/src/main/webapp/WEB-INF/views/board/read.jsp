@@ -1,34 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp"%>
-<%-- <table border="1" width="400">
-	<tr>
-		<th>제목</th>
-		<td>${board.title}</td>
-	</tr>
-	<tr>
-		<th>작성자</th>
-		<td>${board.writer}</td>
-	</tr>
-	<tr>
-		<th>작성일</th>
-		<td>${board.regdate}</td>
-	</tr>
-	<tr>
-		<th>업데이트</th>
-		<td>${board.updatedate}</td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td>${board.content}</td>
-	</tr>
-	<tr>
-		<td colspan="2" align="right"><a
-			href="/board/edit?bno=${board.bno}">수정</a> <a
-			href="/board/delete?bno=${board.bno}">삭제</a> <a href="/board/list">목록</a>
-		</td>
-	</tr>
-</table> --%>
 
 <div class="container">
 	<h2>user00 글보기</h2>
@@ -46,6 +18,36 @@
 			class="form-control" id="writer" name="writer"
 			value="${board.writer }" readonly="readonly">
 	</div>
+
+	<div class="form-group">
+		<label for="file">파일</label>
+		<div>
+			<ul>
+				<c:forEach items="${board.fileList}" var="fileInfo">
+					<li style="list-style: none">
+						<c:choose>
+							<c:when test="${fileInfo.filetype=='image'}">
+								<img src="/resources/upload/${fileInfo.savefolder}/${fileInfo.savefile}" height="50">
+							</c:when>
+							<c:otherwise>
+								<img src="/resources/upload/file.svg" height="50">
+							</c:otherwise>
+						</c:choose>
+						${fileInfo.originfile}
+						<a class="filedown"
+							href="#" 
+							fno="${fileInfo.fno}" 
+							sfolder="${fileInfo.savefolder}"
+							ofile="${fileInfo.originfile}"
+							sfile="${fileInfo.savefile}"> 
+							[다운로드]
+						</a>
+					</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</div>
+
 	<div class="form-group">
 		<label for="content">내용</label>
 		<textarea class="form-control" rows="5" id="content" name="content"
@@ -145,6 +147,13 @@
 			alert("댓글 삭제 실패")
 		})
 	}
+	
+	$(".filedown").click(function(){
+		var fno=$(this).attr('fno');
+		console.log(fno);
+		alert("fno:"+fno+" 원본:"+$(this).attr("ofile")+" 저장:"+$(this).attr("sfile"));
+		location.href="/board/download/"+fno;
+	})  
 	
 	init();
 </script>

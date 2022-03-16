@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.kej.webboard.domain.BoardVO;
+import com.kej.webboard.domain.FileVO;
 
 
 public interface BoardService {
@@ -24,6 +25,7 @@ public interface BoardService {
 	List<BoardVO> findAll(HashMap<String, Object> hm);
 
 	int boardCount(HashMap<String, Object> hm);
-
+	
+	FileVO getFile(int fno) ;
 }
 

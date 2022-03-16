@@ -19,4 +19,5 @@ public class BoardVO {
 	private Date updatedate;
 	private int hitcount;
 	private int replycount;
+	private List<FileVO> fileList;
 }

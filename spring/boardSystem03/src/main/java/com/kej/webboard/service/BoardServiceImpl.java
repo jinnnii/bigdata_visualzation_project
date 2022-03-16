@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kej.webboard.domain.BoardVO;
+import com.kej.webboard.domain.FileVO;
 import com.kej.webboard.mapper.BoardMapper;
 
 
@@ -20,15 +21,23 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getList();
 	}
 
+//	<!--modify-->
 	@Override
 	public BoardVO read(int bno) {
 		boardMapper.hitcount(bno);
-		return boardMapper.read(bno);
+		List<FileVO> fileList = boardMapper.getFileList(bno);
+		BoardVO vo = boardMapper.read(bno);
+		vo.setFileList(fileList);
+		return vo;
 	}
 
 	@Override
 	public void Insert(BoardVO board) {
-		boardMapper.insert(board);
+		boardMapper.insertSelectKey(board);
+		board.getFileList().forEach(fileVO ->{
+			fileVO.setBno(board.getBno());
+			boardMapper.fileRegister(fileVO);
+		});
 		
 	}
 
@@ -62,6 +71,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int boardCount(HashMap<String, Object> hm) {
 		return boardMapper.boardCount(hm);
+	}
+	
+	@Override
+	public FileVO getFile(int fno) {
+		return boardMapper.getFile(fno);
 	}
 
 	
