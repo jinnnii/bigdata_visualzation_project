@@ -1,4 +1,4 @@
-package com.kej.demo.Controller;
+package com.kej.demo.controller;
 
 public class HomeController {
 
