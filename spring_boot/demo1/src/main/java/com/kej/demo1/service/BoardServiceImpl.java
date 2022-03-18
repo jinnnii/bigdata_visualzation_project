@@ -22,6 +22,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void register(BoardVO vo) {
 		mapper.insert(vo);
+		vo.getFileList().forEach(file->{
+			file.setBno(vo.getBno());
+			mapper.fileRegister(file);
+		});
 		
 	}
 

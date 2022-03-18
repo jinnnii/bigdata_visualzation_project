@@ -38,7 +38,7 @@
 
             <hr class="featurette-divider">
 
-            <form action="/board/register" method="POST">
+            <form action="/board/register" method="POST" enctype="multypart/form-data">
               <div class="form-group">
                 <label for="writer">작성자</label>
                 <input type="text" class="form-control" id="writer" aria-describedby="idHelp" name="writer" value="user01" readonly>
@@ -56,7 +56,7 @@
 
               <div class="form-group">
                 <label for="exampleFormControlFile1">첨부 파일</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="uploads" name="uploads" multiple>
               </div>
 
               <div class="my-4 text-center">
