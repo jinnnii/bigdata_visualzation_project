@@ -1,4 +1,4 @@
-package com.kej.demo.domain;
+package com.example.demo.entity;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.kej.demo.constant.ItemSellStatus;
+import com.example.demo.constant.ItemSellStatus;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -54,4 +54,7 @@ public class Item {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@UpdateTimestamp
 	private LocalDateTime updateTime;
+	
+//	@OneToMany(mappedBy = "cart_item")
+//	private List<CartItem> cartItems; 
 }
