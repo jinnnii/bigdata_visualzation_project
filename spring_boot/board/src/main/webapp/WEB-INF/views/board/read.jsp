@@ -7,7 +7,7 @@
 
 	<div class="form-group">
 		<label for="num">글번호</label> <input type="text" class="form-control"
-			id="bno" name="bno" value="${board.bno }" readonly="readonly">
+			id="id" name="id" value="${board.id }" readonly="readonly">
 	</div>
 	<div class="form-group">
 		<label for="title">제목</label> <input type="text" class="form-control"
@@ -20,6 +20,12 @@
 	</div>
 
 	<div class="form-group">
+		<label for="regdate">등록일자</label> <input type="text"
+			class="form-control" id="regdate" name="regdate"
+			value="${board.regdate }" readonly="readonly">
+	</div>
+
+	<%-- <div class="form-group">
 		<label for="file">파일</label>
 		<div>
 			<ul>
@@ -46,7 +52,7 @@
 				</c:forEach>
 			</ul>
 		</div>
-	</div>
+	</div> --%>
 
 	<div class="form-group">
 		<label for="content">내용</label>
@@ -55,7 +61,7 @@
 	</div>
 
 	<div class="form-group text-right">
-		<c:if test="${sMember.id==board.writer}">
+		<c:if test="${sUser.username==board.writer}">
 			<button type="button" class="btn btn-secondary btn-sm" id="btnUpdate">수정하기</button>
 			<button type="button" class="btn btn-secondary btn-sm" id="btnDelete">삭제하기</button>
 		</c:if>
@@ -71,7 +77,11 @@
 		<button type="button" class="btn btn-success" id="replyBtn">Reply
 			Write</button>
 	</div>
-	<div id="replyResult"></div>
+	<div id="replyResult">
+		<%--		<c:forEach items="${replies}" var="reply"> --%>
+		<%-- 			${reply.content} --%>
+		<%-- 		</c:forEach> --%>
+	</div>
 
 
 </div>
@@ -79,17 +89,17 @@
 	const init= ()=>{
 		$.ajax({
 			type: "get",
-			url : "/replies/getList/${board.bno}.json",
+			url : "/replies/getList/${board.id}.json",
 			cotentType: "application/json; charset=utf-8"
 		}).done((resp)=>{
 			var str= "<table class='table table-hover mt-3'>";
 			$.each(resp, (key,val)=>{
 				str+="<tr>";
-				str+="<td>"+val.replyer+"</td>";
-				str+="<td>"+val.reply+"</td>";
-				str+="<td>"+val.replydate+"</td>";
-				if("${sessionScope.sMember.id}"==val.replyer){
-					str+="<td><a href='javascript:fdel("+val.rno+")'>삭제</a></td>";
+				str+="<td>"+val.writer+"</td>";
+				str+="<td>"+val.content+"</td>";
+				str+="<td>"+val.regdate+"</td>";
+				if("${sessionScope.sUser.username}"==val.replyer){
+					str+="<td><a href='javascript:fdel("+val.id+")'>삭제</a></td>";
 				}
 				str+="</tr>";
 			})
@@ -99,13 +109,13 @@
 	}
 	$("#btnUpdate").click(()=>{		
 		if(confirm("정말 수정할까요?")){
-			location.href="/board/edit?bno=${board.bno}";
+			location.href="/board/edit?id=${board.id}";
 		}
 	})
 	
 	$("#btnDelete").click(()=>{		
 		if(confirm("정말 삭제할까요??")){
-			location.href="/board/delete?bno=${board.bno}";
+			location.href="/board/delete?id=${board.id}";
 		}
 	})
 	
@@ -119,13 +129,13 @@
 			location.href="/member/login";
 		}
 		data={
-				"bno": $("#bno").val(),
-				"reply" : $("#reply").val(),
-				"replyer" : "${sMember.id}"
+				"id": $("#id").val(),
+				"content" : $("#reply").val(),
+				"writer" : "${sUser.username}"
 		}
 		$.ajax({
 			type:"post",
-			url:"/replies/new",
+			url:"/replies/new/${board.id}",
 			contentType : "application/json; charset=utf-8",
 			data: JSON.stringify(data)
 		}).done((resp)=>{

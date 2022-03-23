@@ -34,12 +34,12 @@
 		</ul>
 		<ul class="navbar-nav">
 			<c:choose>
-				<c:when test="${empty sessionScope.sMember }">
+				<c:when test="${empty sessionScope.sUser }">
 					<li class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
 					<li class="nav-item"><a class="nav-link" href="/join">회원가입</a></li>
 				</c:when>
 				<c:otherwise>
-					<li class="nav-item"><a class="nav-link" href="/logout">로그아웃(${sMember.id})</a></li>
+					<li class="nav-item"><a class="nav-link" href="/logout">로그아웃(${sUser.username})</a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>

@@ -34,10 +34,10 @@ $(document).ready(() => {
 		}
 
 		const data = {
-			"id": $("#username").val(),
-			"name": $("#password").val(),
-			"pass": $("#email").val(),
-			"addr": $("#role").val(),
+			"username": $("#username").val(),
+			"password": $("#password").val(),
+			"email": $("#email").val(),
+			"role": $("#role").val(),
 		}
 		$.ajax({
 			type: "post",
@@ -49,7 +49,7 @@ $(document).ready(() => {
 				if (res == "success") {
 					alert("가입을 축하드립니다.");
 					location.href = "/login"
-				} else if (res == "fail") {
+				} else if (res == "failed") {
 					alert("동일한 아이디가 있습니다.");
 					$("#id").val();
 				}
@@ -63,8 +63,8 @@ $(document).ready(() => {
 			type: "post",
 			url: "/login",
 			data: {
-				"username": $("#id").val(),
-				"password": $("#pass").val()
+				"username": $("#username").val(),
+				"password": $("#password").val()
 			}
 		}).done((resp) => {
 			if (resp == "no") {
@@ -72,7 +72,7 @@ $(document).ready(() => {
 				location.href = "/join"
 			} else if (resp == "success") {
 				alert("로그인 성공");
-				location.href = "/board/list"
+				location.href = "/index"
 			} else {
 				alert("비밀번호를 확인하세요");
 			}

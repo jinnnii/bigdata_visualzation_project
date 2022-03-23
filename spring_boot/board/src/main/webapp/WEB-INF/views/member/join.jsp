@@ -31,10 +31,10 @@
 		</div>
 		<div class="form-group">
 			<label for="role">구분:</label>
-			<selct class="form-control" id="role" name="role">
+			<select class="form-control" id="role" name="role">
 				<option value="USER" selected >사용자(default)</option>
 				<option value="ADMIN">관리자</option>
-			</selct>
+			</select>
 		</div>
 		<button type="button" class="btn btn-primary btn-sm" id="btnJoin">회원가입</button>
 	</form>
