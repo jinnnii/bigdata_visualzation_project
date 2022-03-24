@@ -47,7 +47,7 @@ public class ReplyController {
 		return new ResponseEntity<String>("success",HttpStatus.OK);
 	}
 	
-	@GetMapping("/getList/{bno}")
+	@GetMapping("getList/{bno}")
 	public List<Reply> list(@PathVariable Long bno){
 		List<Reply> rlist = boardService.replies(bno);
 		return rlist;

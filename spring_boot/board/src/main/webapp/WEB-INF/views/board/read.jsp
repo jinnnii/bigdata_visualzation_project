@@ -89,7 +89,8 @@
 	const init= ()=>{
 		$.ajax({
 			type: "get",
-			url : "/replies/getList/${board.id}.json",
+			url : "/replies/getList/${board.id}",
+			dataType:"JSON",
 			cotentType: "application/json; charset=utf-8"
 		}).done((resp)=>{
 			var str= "<table class='table table-hover mt-3'>";
@@ -98,7 +99,7 @@
 				str+="<td>"+val.writer+"</td>";
 				str+="<td>"+val.content+"</td>";
 				str+="<td>"+val.regdate+"</td>";
-				if("${sessionScope.sUser.username}"==val.replyer){
+				if("${sessionScope.sUser.username}"==val.writer){
 					str+="<td><a href='javascript:fdel("+val.id+")'>삭제</a></td>";
 				}
 				str+="</tr>";
@@ -124,13 +125,12 @@
 	})
 	
 	$("#replyBtn").click(()=>{
-		if(${empty sessionScope.sMember}){
+		if(${empty sessionScope.sUser}){
 			alert("로그인이 필요합니다.");
-			location.href="/member/login";
+			location.href="/login";
 		}
 		data={
-				"id": $("#id").val(),
-				"content" : $("#reply").val(),
+				"content" : $("#content").val(),
 				"writer" : "${sUser.username}"
 		}
 		$.ajax({

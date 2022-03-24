@@ -20,6 +20,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -43,6 +45,7 @@ public class Board {
 	@OneToMany(mappedBy = "board",
 			fetch = FetchType.LAZY,
 			cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Reply> replies;
 	
 	

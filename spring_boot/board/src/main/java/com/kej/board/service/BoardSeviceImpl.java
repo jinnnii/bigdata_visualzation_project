@@ -3,6 +3,8 @@ package com.kej.board.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.kej.board.model.Board;
@@ -19,11 +21,19 @@ public class BoardSeviceImpl implements BoardService {
 	@Autowired
 	ReplyRepository replyRepository;
 
-	@Override
-	public List<Board> getList() {
-		return boardRepository.findAll();
-	}
+//	@Override
+//	public List<Board> getList() {
+//		return boardRepository.findAll();
+//	}
 
+	
+	@Override
+	public Page<Board> findAll(Pageable pageable) {
+		return boardRepository.findAll(pageable);
+	}
+	
+	
+	
 	@Override
 	public Board findById(Long bno) {
 		Board board = boardRepository.findById(bno).get();

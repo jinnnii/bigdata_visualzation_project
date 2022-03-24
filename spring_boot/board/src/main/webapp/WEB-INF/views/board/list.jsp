@@ -22,13 +22,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list }">
+			<c:forEach var="board" items="${list.content}">
 				<tr>
 					<td>${board.id }</td>
 					<td>${board.writer }</td>
-					<%-- 					<td><a href="/board/read?bno=${board.bno}&pageNum=${p.curPage}&field=${field}&word=${word}">${board.title }(${board.replycount})</a></td> --%>
 					<td><a
-						href="/board/read?id=${board.id}">${board.title }</a></td>
+						href="/board/read?id=${board.id}&pageNum=${curPage}&field=${field}&word=${word}">${board.title }</a></td>
+<%-- 					<td><a href="/board/read?id=${board.id}">${board.title }</a></td> --%>
 					<td><fmt:formatDate value="${board.regdate}"
 							pattern="yyyy-MM-dd" /></td>
 					<td>${board.hitcount }</td>
@@ -37,24 +37,24 @@
 		</tbody>
 	</table>
 	<div class="d-flex justify-content-between mt-3">
-		<%-- <ul class="pagination">
+		<ul class="pagination">
 			<!-- 이전 -->
-			<c:if test="${p.startPage>p.blockSize}">
+			<c:if test="${prev==true}">
 				<li class="page-item"><a class="page-link"
-					href="list?pageNum=${p.startPage-p.blockSize}&field=${field}&word=${word}">Previous</a></li>
+					href="list?page=${startPage-pageSize}&field=${field}&word=${word}">Previous</a></li>
 			</c:if>
 			<!--페이지 리스트-->
-			<c:forEach begin="${p.startPage}" end="${p.endPage}" var="i">
+			<c:forEach begin="${startPage}" end="${endPage}" var="i">
 				<li class="page-item"><a class="page-link"
-					href="list?pageNum=${i}&field=${field}&word=${word}">${i}</a></li>
+					href="list?page=${i}&field=${field}&word=${word}">${i+1}</a></li>
 			</c:forEach>
 
 			<!-- 다음 -->
-			<c:if test="${p.endPage<p.totPage}">
+			<c:if test="${next==true}">
 				<li class="page-item"><a class="page-link"
-					href="list?pageNum=${p.endPage+1}&field=${field}&word=${word}">Next</a></li>
+					href="list?page=${endPage+1}&field=${field}&word=${word}">Next</a></li>
 			</c:if>
-		</ul> --%>
+		</ul>
 
 		<%-- <form class="form-inline" action="/board/list" id="searchFrm">
 			<select name="field" class="form-control mb-2 mr-sm-2">

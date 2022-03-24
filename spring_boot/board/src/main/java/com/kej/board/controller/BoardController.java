@@ -1,6 +1,10 @@
 package com.kej.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +27,43 @@ public class BoardController {
 	@Autowired
 	private ReplyService replyService;
 	
+//	@GetMapping("list")
+//	public void getList(Model model) {
+//		model.addAttribute("list", boardService.getList());
+//		model.addAttribute("count", boardService.count());
+//	}
+	
 	@GetMapping("list")
-	public void getList(Model model) {
-		model.addAttribute("list", boardService.getList());
-		model.addAttribute("count", boardService.count());
+	public String listPage(Model model,
+			@PageableDefault(size=5, sort="id",
+				direction=Sort.Direction.DESC) Pageable pageable) {
+		Page<Board> list = boardService.findAll(pageable);
+		
+		long pageSize = pageable.getPageSize();
+		long rowNm = boardService.count();
+		long totPage =(long)Math.ceil((double)rowNm/pageSize); //반올림
+		long curPage = pageable.getPageNumber();
+		
+		long startPage = (curPage/pageSize)*pageSize;
+		long endPage = startPage+pageSize-1;
+		if(endPage>totPage) {
+			endPage=totPage;
+		}
+		
+		boolean prev = startPage>0?true:false;
+		boolean next = endPage<totPage?true:false;
+		
+		model.addAttribute("pageSize", pageSize);
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("prev",prev);
+		model.addAttribute("next",next);
+		model.addAttribute("count",rowNm);
+		model.addAttribute("list",list);
+		model.addAttribute("totPage",totPage);
+		model.addAttribute("curPage",curPage);
+		
+		return "board/list";
 	}
 	
 //	@GetMapping({"read","edit"})

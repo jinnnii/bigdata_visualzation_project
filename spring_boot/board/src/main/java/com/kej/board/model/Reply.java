@@ -48,6 +48,6 @@ public class Reply {
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name="bno")
+	@JoinColumn(name="board_id")
 	private Board board;
 }
