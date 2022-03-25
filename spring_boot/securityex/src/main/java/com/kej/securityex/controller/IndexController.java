@@ -43,11 +43,12 @@ public class IndexController {
 		return "admin page";
 	}
 	
+	
+	
 	@GetMapping("/login")
 	public void loginForm() {
 		
 	}
-	
 	
 	
 	@GetMapping("/join")
