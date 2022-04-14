@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lab04</string>
+    <string name="string_test">this is string test</string>
+    <string name="max_lines">this is max line test this is max line test this is max line test this is max line test this is max line test this is max line test this is max line test this is max line test this is max line test this is max line test</string>
+</resources>
