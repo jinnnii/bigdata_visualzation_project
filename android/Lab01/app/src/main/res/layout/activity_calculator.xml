@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:paddingRight="20dp"
-            android:text="0."
+            android:text="0"
+            android:textColor="@color/black"
             android:textSize="24sp" />
 
         <GridLayout
