@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lab01</string>
+    <string name="title">Find your phone contacts on Messenger</string>
+    <string name="sub">Continuously uploading your contacts helps Facebook and Messenger suggest connections and provide and improve ads for you and others and offer a better service.</string>
+    <string name="setting">TRUN ON</string>
+    <string name="later">NOT NOW</string>
 </resources>

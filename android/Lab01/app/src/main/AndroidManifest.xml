@@ -10,13 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab01">
         <activity
-            android:name=".JoinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ResourceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CalculatorActivity"
+            android:name=".MessengerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ImageViewerActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".BookActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".JoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResourceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
         <activity
             android:name=".TestActivity"
             android:exported="false" />

@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_book.xml" value="0.33" />
         <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_calculator.xml" value="0.2" />
+        <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_image_viewer.xml" value="0.25" />
         <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_join.xml" value="0.36614583333333334" />
         <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_messenger.xml" value="0.17806484295845998" />
         <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_resource.xml" value="0.536" />
         <entry key="..\:/kej/pj/android/Lab01/app/src/main/res/layout/activity_test.xml" value="0.33" />
         <entry key="..\:/kej/pj/android/Lab01/lab06/src/main/res/drawable/round_btn.xml" value="0.349" />
