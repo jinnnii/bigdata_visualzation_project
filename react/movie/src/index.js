@@ -4,11 +4,12 @@ import ReactDOM from 'react-dom/client';
 // import AppTest from './AppTest';
 // import AxiosTest from './AxiosTest';
 import RouterTest from './RouterTest';
-
+import Catering from './Catering';
 /**
  *!라우터 사용
  */
 import { BrowserRouter } from 'react-router-dom';
+import Boot2 from './Boot2';
 
 // ReactDOM : 리액트의 가상 DOM 을 의미
 // createRoot : 가상 DOM 을 생성함
@@ -24,7 +25,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // PROP : 각 컴포넌트끼리 데이터를 주고받기 위한 객체, 일종의 매개변수
 // root.render(
 //     <React.StrictMode>
-//         <RouterTest />
+//         <Boot2 />
 //     </React.StrictMode>,
 // );
 
@@ -33,6 +34,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
  */
 root.render(
     <BrowserRouter>
-        <RouterTest />
+        <Catering />
     </BrowserRouter>,
 );
