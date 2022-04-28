@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script>
+	$(document).ready(()=>{
+		$("#btn-click").on("click",()=>{
+			alert("클릭")
+		})
+		
+		$("#btn-ajax").on("click",()=>{
+			var datas = {data :$("#input-text").val()}
+			$.ajax({
+				url:"/ajax/test",
+				type:"get",
+				data:datas,
+				success:(res)=>{
+					alert("성공\n"+res)
+				},
+				error:(err)=>{
+					alert("에러발생\n"+err)
+				}
+				
+			})
+		})
+		
+		$("#btn-board-list").on("click",()=>{
+			$.ajax({
+				url:"/ajax/boardList",
+				type:"get",
+				success:(res)=>{
+					alert("성공\n"+res)
+					console.log(res)
+				},
+				error:(err)=>{
+					alert("에러발생\n"+err)
+				}
+				
+			})
+		})
+		
+		$("#btn-insert-board").on("click",()=>{
+			$.ajax({
+				url:"/ajax/insertBoard",
+				type:"post",
+				data:{
+					title: $("#title").val(),
+					content: $("#content").val(),
+					writer: $("#writer").val()
+				},
+				success:(res)=>{
+					alert("성공\n"+res)
+					console.log(res)
+				},
+				error:(err)=>{
+					alert("에러발생\n"+err)
+				}
+				
+			})
+		})
+		
+		$("#btn-update-board").on("click",()=>{
+			data = { boardId : $("#board-id").val()}
+			
+			$.ajax({
+				url:"/ajax/updateForm",
+				type:"get",
+				data:data,
+				
+				success:(res)=>{
+					$("#title").val(res.title)
+					$("#content").val(res.content)
+					$("#writer").val(res.createId)
+				},
+				error:(err)=>{
+					alert("에러발생\n"+err)
+				}
+				
+			})
+		})
+	})
+</script>
+<body>
+	<h1>리액트와 연동할 서버 테스트</h1>
+	<button type="button" id="btn-click">클릭</button>
+	<p>전송할 데이터 >>> <input type="text" id="input-text"></p>
+	<button type="button" id="btn-ajax">서버와 ajax 통신</button>
+	<button type="button" id="btn-board-list">보드보기</button>
+	
+	
+	<br/>
+	<p> 제목 : <input type="text" id="title"></p>
+	<p> 작성자 : <input type="text" id="writer"></p>
+	<p> 내용 : <input type="text" id="content"></p>
+	<button type="button" id="btn-insert-board"> 작성하기 </button>
+	<p> 보드 아이디 입력 : <input type="text" id="board-id"></p>
+	<button type="button" id="btn-update-board"> 글수정하기 </button>
+	
+</body>
+</html>
