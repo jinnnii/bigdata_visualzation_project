@@ -3,8 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_fragment.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_fragment_test.xml" value="0.2318840579710145" />
         <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_main.xml" value="0.13269927536231885" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_movie_view.xml" value="0.36614583333333334" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_page.xml" value="0.2318840579710145" />
         <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_permission_test.xml" value="0.13269927536231885" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_recycler_view.xml" value="0.36614583333333334" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_toolbar.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/activity_zpack.xml" value="0.33" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/fragment_test1.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/fragment_test2.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/fragment_test3.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/item_pager.xml" value="0.2318840579710145" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/movie_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/layout/recycler_adapter.xml" value="0.36614583333333334" />
+        <entry key="..\:/kej/pj/android/Lab05/app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
     </option>
   </component>

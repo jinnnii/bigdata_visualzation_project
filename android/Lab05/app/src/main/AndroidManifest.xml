@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab05">
         <activity
-            android:name=".PermissionTest"
-            android:exported="true" >
+            android:name=".FragmentTestActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".PageActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".FragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ToolbarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MovieView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".ZpackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PermissionTest"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
