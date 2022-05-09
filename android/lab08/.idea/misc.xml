@@ -3,11 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_add.xml" value="0.35688405797101447" />
         <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_contacts.xml" value="0.16394927536231885" />
         <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_database.xml" value="0.22" />
         <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_database2.xml" value="0.17603850050658562" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_gd.xml" value="0.16032608695652173" />
         <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_main2.xml" value="0.35688405797101447" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_setting.xml" value="0.16032608695652173" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_test1.xml" value="0.16032608695652173" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/activity_volly.xml" value="0.16032608695652173" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/item_recyclerview.xml" value="0.35688405797101447" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/layout/item_retrofit.xml" value="0.25" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/menu/menu_add.xml" value="0.36614583333333334" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/menu/menu_main.xml" value="0.36614583333333334" />
         <entry key="..\:/kej/pj/android/lab08/app/src/main/res/xml/file_paths.xml" value="0.17806484295845998" />
+        <entry key="..\:/kej/pj/android/lab08/app/src/main/res/xml/settings.xml" value="0.16032608695652173" />
       </map>
     </option>
   </component>
