@@ -1,4 +1,4 @@
-package com.example.mypetwalk.entiry
+package com.example.mypetwalk.model
 
 import java.util.*
 

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPetWalk">
         <activity
+            android:name=".InputImageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImageActivity"
             android:exported="true">
             <intent-filter>
