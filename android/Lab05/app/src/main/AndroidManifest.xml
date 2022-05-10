@@ -5,10 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
-    <permission android:name="com.example.lab05.PermissionTest"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab05">
         <activity
-            android:name=".SoundActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PermissionTest"
+            android:name=".FragmentTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,10 +22,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".PageActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".FragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ToolbarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MovieView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".ZpackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PermissionTest"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
