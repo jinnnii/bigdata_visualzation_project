@@ -13,6 +13,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.lab05.databinding.ActivityPermissionTestBinding
+import com.example.lab05.databinding.InputDialogBinding
 
 class PermissionTest : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.R)
@@ -98,6 +99,31 @@ class PermissionTest : AppCompatActivity() {
                 show()
             }
         }
+
+
+        binding.alertBtn.setOnClickListener {
+            var dialogBinding = InputDialogBinding.inflate(layoutInflater)
+            AlertDialog.Builder(this).run{
+                setTitle("Item Dialog")
+                setIcon(android.R.drawable.ic_dialog_alert)
+
+                setPositiveButton("OK", DialogInterface.OnClickListener{
+                    dialogInterface, i ->
+                    var str=dialogBinding.editText.text.toString()
+                    var id=dialogBinding.radioGroup.checkedRadioButtonId
+                    when(id){
+                        R.id.radioMale -> str+=dialogBinding.radioMale.text.toString()
+                        R.id.radioFemale->str+=dialogBinding.radioFemale.text.toString()
+                    }
+                    binding.textView.text= str
+                })
+                setNegativeButton("CANCEL", null)
+                setNeutralButton("MORE", null)
+
+                show()
+            }
+        }
     }
 
 }
+
