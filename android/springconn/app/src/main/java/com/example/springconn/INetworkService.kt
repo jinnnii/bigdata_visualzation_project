@@ -12,7 +12,7 @@ interface INetworkService {
     @GET ("list")
     fun doGetUserList(): Call<UserListModel>
 
-    @GET("user/{id}")
+    @GET("getUser/{id}")
     fun doGetUser(@Path("id") id:Long):Call<UserModel>
 
     @POST("insert")

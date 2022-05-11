@@ -1,9 +1,11 @@
 package com.example.springconn.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.springconn.DetailActivity
 import com.example.springconn.databinding.ItemBinding
 import com.example.springconn.model.UserModel
 
@@ -18,6 +20,11 @@ class MyAdapter (val context:Context, val datas:List<UserModel>?):RecyclerView.A
         val binding=(holder as MyViewHolder).binding
         val user = datas?.get(position)
         binding.tvId.text = user?.username
+        binding.tvId.setOnClickListener{
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("id", user?.id)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

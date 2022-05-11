@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
         <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/activity_image.xml" value="0.264" />
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/activity_input_image.xml" value="0.1" />
         <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/bottom_navi.xml" value="0.1" />
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/fragment_community.xml" value="0.18333333333333332" />
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/image_item.xml" value="0.18333333333333332" />
         <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/layout/item.xml" value="0.1" />
+        <entry key="..\:/kej/pj/android/MyPetWalk/app/src/main/res/menu/bottom_nav.xml" value="0.1" />
       </map>
     </option>
   </component>

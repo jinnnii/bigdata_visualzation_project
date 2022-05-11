@@ -23,7 +23,7 @@ class ImageActivity : AppCompatActivity() {
          */
         mStorageRef=FirebaseStorage.getInstance().getReference()
         val imateAdapter= ImageAdapter(this, ArrayList())
-        val imageAdapter =ImageAdapter(this, imageList)
+//        val imageAdapter =ImageAdapter(this, imageList)
 
 
         /**
