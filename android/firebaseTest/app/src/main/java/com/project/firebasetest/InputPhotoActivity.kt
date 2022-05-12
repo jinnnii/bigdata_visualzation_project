@@ -1,26 +1,28 @@
 package com.project.firebasetest
 
 import android.Manifest
-import android.app.Activity
+import android.content.ContentResolver
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.webkit.MimeTypeMap
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.project.firebasetest.databinding.ActivityInputPhotoBinding
-import java.text.SimpleDateFormat
+import com.project.firebasetest.model.ImageModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 class InputPhotoActivity : AppCompatActivity() {
     lateinit var binding:ActivityInputPhotoBinding
@@ -31,7 +33,11 @@ class InputPhotoActivity : AppCompatActivity() {
     lateinit var mDatabaseRef: DatabaseReference
 
     val IMAGE_PICK=100
-    var selectImage: Uri?=null
+    var imageUri = arrayListOf<Uri>()
+
+    lateinit var uploadBtn: Button
+    lateinit var selectBtn:Button
+    lateinit var imageView:ImageView
 
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
 //            it-> changeFragment(GalleryFragment(it))
@@ -46,19 +52,81 @@ class InputPhotoActivity : AppCompatActivity() {
         // 갤러리 접근 허용 메시지, 허용 시 앱이 설치되어있는 동안 유지
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
 
-        mFirebaseStorage= FirebaseStorage.getInstance().getReference("images")
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference("images")
+        mFirebaseStorage= FirebaseStorage.getInstance().getReference()
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("image")
+
+        uploadBtn= binding.uploadImageBtn
+        selectBtn= binding.putImageBtn
+        imageView = binding.imageView
+
+        // todo 가져온 이미지 uri 삽입
+        var activityResult:ActivityResultLauncher<Intent> =
+            registerForActivityResult(
+                ActivityResultContracts.StartActivityForResult()){
+                    result->
+                if (result.resultCode== RESULT_OK && result.data!=null){
+                    imageUri.add(result.data!!.data!!)
+                    imageView.setImageURI(imageUri.get(0))
+                }
+            }
 
 
-        binding.putImageBtn.setOnClickListener {
-            val intent = Intent()
-            intent.setAction(Intent.ACTION_PICK)
-            intent.setType("image/*")
+        fun getFileExtension(uri:Uri):String?{
+            val cr:ContentResolver = contentResolver
+            val mime:MimeTypeMap = MimeTypeMap.getSingleton()
+
+            return mime.getExtensionFromMimeType(cr.getType(uri))
+        }
+
+
+        //todo 파이어베이스 이미지 업로드
+        fun uploadToFirebase(uriList:ArrayList<Uri>){
+            val fileRef:StorageReference = mFirebaseStorage.child(
+                System.currentTimeMillis().toString())
+
+            val fileArray = mapOf<String, ImageModel>()
+            for(uri in uriList){
+                fileRef.putFile(uri).addOnSuccessListener {
+                    //성공시
+                    fileRef.downloadUrl.addOnSuccessListener {
+                        //이미지 모델에 담기
+                        val image = ImageModel(uri.toString())
+
+                        //키로 아이디 생성
+                        val imgId= mDatabaseRef.push().key
+
+                        //데이터 삽입
+//                        mDatabaseRef.child(imgId.toString()).setValue(image)
+                        fileArray.plus(imgId.toString() to image)
+//                        Toast.makeText(this, "업로드 성공!", Toast.LENGTH_SHORT).show()
+
+
+                        //업로드 이후 알려줄 화면
+                        imageView.setImageResource(R.drawable.ic_launcher_background)
+                    }
+                }.addOnProgressListener {
+                    //프로그래스바
+                }.addOnFailureListener{
+                    //실패
+                    Toast.makeText(this, "업로드 실패!", Toast.LENGTH_SHORT).show()
+                    return@addOnFailureListener
+                }
+
+                for(file in fileArray){
+//                    mDatabaseRef.child(file.key).setValue(file.value)
+                    Log.d("pet",file.toString())
+                }
+            }
+
+        }
+
+
+        //todo 사진 가져오기 (select)
+        selectBtn.setOnClickListener {
+            val intent = Intent().setAction(Intent.ACTION_PICK).setType("image/*")
             activityResult.launch(intent)
             val galleryIntent= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             setResult(IMAGE_PICK, galleryIntent)
-
-
 
 //            if (selectImage!=null) {//이미 이미지가 업로드 되어있는 경우
 //                //파일 이름 설정
@@ -79,22 +147,20 @@ class InputPhotoActivity : AppCompatActivity() {
         }
 
         /**
-         *  이미지 업로드 버튼 클릭
+         *  이미지 등록 버튼 클릭
          */
-        binding.putImageBtn.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(this@InputPhotoActivity.applicationContext,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
-                launcher.launch("image/**")  //갤러리로 이동하는 런처 실행.
-            } else {    //앱이 갤러리에 접근햐는 것을 허용하지 않았을 경우
+        uploadBtn.setOnClickListener {
+            if(imageUri.size!=0){
+                uploadToFirebase(imageUri!!)
+            }else{
                 Toast.makeText(this@InputPhotoActivity,
-                    "갤러리 접근 권한이 거부돼 있습니다. 설정에서 접근을 허용해 주세요.",
+                    "사진을 선택해 주세요",
                     Toast.LENGTH_SHORT).show()
             }
         }
+
+
+
     }
-
-
-    
-
 
 }
