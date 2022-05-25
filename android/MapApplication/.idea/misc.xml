@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/kej/pj/android/MapApplication/app/src/main/res/layout/activity_maps.xml" value="0.358695652173913" />
+        <entry key="..\:/kej/pj/android/MapApplication/app/src/main/res/layout/activity_maps.xml" value="0.2" />
+        <entry key="..\:/kej/pj/android/MapApplication/app/src/main/res/layout/fragment_maps.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>

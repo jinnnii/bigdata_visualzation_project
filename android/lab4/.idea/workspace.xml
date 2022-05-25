@@ -9,13 +9,81 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e38305a-df7d-4d84-8463-a3146eeb6b7f" name="Default Changelist" comment="" />
+    <list default="true" id="4e38305a-df7d-4d84-8463-a3146eeb6b7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../MapApplication/app/src/main/java/com/example/mapapplication/MapsFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MapApplication/app/src/main/res/layout/fragment_maps.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapApplication/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MapApplication/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapApplication/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MapApplication/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapApplication/app/src/main/res/layout/activity_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MapApplication/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MapApplication/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../MapApplication/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/androidTest/java/com/project/petwalk/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/frag/FragCalendar.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/frag/FragCommunity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/frag/FragHome.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/frag/FragMypage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/java/com/project/petwalk/frag/FragWalk.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_baseline_calendar_today_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_baseline_directions_walk_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_baseline_home_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_baseline_message_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_baseline_person_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_error.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable-v24/ic_loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/fragment_frag_calendar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/fragment_frag_community.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/fragment_frag_home.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/fragment_frag_mypage.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/fragment_frag_walk.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/layout/item_image.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/menu/bottom_nav.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/app/src/test/java/com/project/petwalk/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petwalk/settings.gradle" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\LGuser\.android\avd\Pixel_2_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\admin\.android\avd\Pixel_2_API_30_2.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -35,7 +103,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab01" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab02" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
